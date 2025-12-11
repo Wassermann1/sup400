@@ -13,3 +13,6 @@ https://gist.github.com/daveshah1/39faa3f85d492cba38ecf45e272f72de
 - Official website provide vt03.lib with .inc and .h files but LCD initialization not included in standard lib
 - Different consoles have differnt LCD initialization logic, but LCD itself can be swapped between  different consoles with no issues
 - vt3xx should be backwards comparable with vt03 dumps uploaded from other consoles work with TV out but without LCD and APU
+
+
+project root contains current disassembled code from dump.BIN
