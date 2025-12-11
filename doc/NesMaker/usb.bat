@@ -1,0 +1,1 @@
+copy rom.bin k:\rom.bin /y

@@ -1,0 +1,298 @@
+Modules list:
+-------------
+vt03.o:
+    ZEROPAGE          Offs = 000000   Size = 00003D
+    STARTUP           Offs = 000000   Size = 00009C
+    VECTORS           Offs = 000000   Size = 000006
+pinball.o:
+    CODE              Offs = 000000   Size = 000064
+nmi.o:
+    STARTUP           Offs = 00009C   Size = 000001
+irq.o:
+    STARTUP           Offs = 00009D   Size = 000002
+extdata.o:
+    EXTDATA           Offs = 000000   Size = 000500
+    PGT               Offs = 000000   Size = 006000
+vt03.lib(callmain.o):
+    BSS               Offs = 000000   Size = 000004
+    STARTUP           Offs = 00009F   Size = 000017
+vt03.lib(condes.o):
+    BSS               Offs = 000004   Size = 000001
+    DATA              Offs = 000000   Size = 000007
+    STARTUP           Offs = 0000B6   Size = 000038
+vt03.lib(incsp2.o):
+    STARTUP           Offs = 0000EE   Size = 000016
+vt03.lib(pushax.o):
+    STARTUP           Offs = 000104   Size = 00001A
+vt03.lib(zerobss.o):
+    CODE              Offs = 000064   Size = 000023
+vt03.lib(setvectors.o):
+    STARTUP           Offs = 00011E   Size = 00001B
+vt03.lib(openscreendisplay.o):
+    STARTUP           Offs = 000139   Size = 000007
+vt03.lib(enablenmi.o):
+    STARTUP           Offs = 000140   Size = 00000A
+vt03.lib(waitpatternupdate.o):
+    STARTUP           Offs = 00014A   Size = 000007
+vt03.lib(patternupdate.o):
+    STARTUP           Offs = 000151   Size = 000007
+vt03.lib(waitpaletteupdate.o):
+    STARTUP           Offs = 000158   Size = 000007
+vt03.lib(paletteupdate.o):
+    STARTUP           Offs = 00015F   Size = 000007
+vt03.lib(clearoalettebuffer.o):
+    STARTUP           Offs = 000166   Size = 000012
+vt03.lib(initscreen.o):
+    STARTUP           Offs = 000178   Size = 0000FE
+vt03.lib(clearspritebuffer.o):
+    STARTUP           Offs = 000276   Size = 00000B
+vt03.lib(standardnmi.o):
+    STARTUP           Offs = 000281   Size = 00008C
+vt03.lib(nmidmascreen.o):
+    STARTUP           Offs = 00030D   Size = 000038
+vt03.lib(nmidmacalclength.o):
+    STARTUP           Offs = 000345   Size = 00004F
+vt03.lib(nmidmapalette.o):
+    STARTUP           Offs = 000394   Size = 00004F
+vt03.lib(standardirq.o):
+    STARTUP           Offs = 0003E3   Size = 000066
+vt03.lib(initvt03system.o):
+    STARTUP           Offs = 000449   Size = 00000A
+vt03.lib(installvt03.o):
+    STARTUP           Offs = 000453   Size = 00002D
+vt03.lib(joystick.o):
+    CODE              Offs = 000087   Size = 00003F
+
+
+Segment list:
+-------------
+Name                  Start   End     Size
+--------------------------------------------
+PGT                   000000  005FFF  006000
+ZEROPAGE              000002  00003E  00003D
+DATA                  000400  000406  000007
+BSS                   000407  00040B  000005
+CODE                  00A007  00A0CC  0000C6
+STARTUP               00E000  00E47F  000480
+VECTORS               00FFFA  00FFFF  000006
+EXTDATA               040000  0404FF  000500
+
+
+Exports list:
+-------------
+DMADestinationAddress     000033 RLZ    DMALength                 000035 RLZ    
+DMAScreenBank             000030 RLZ    DMASourceAddress          000031 RLZ    
+IRQCount                  00002B RLZ    IRQScanLine               00002E RLZ    
+IRQScanLineBank           00002C RLZ    InitScreenPoint           000037 RLZ    
+Joy1_Button               000025 RLZ    Joy1_Press                000027 RLZ    
+Joy1_PressFlag            000026 RLZ    Joy2_Button               000028 RLZ    
+Joy2_Press                00002A RLZ    Joy2_PressFlag            000029 RLZ    
+NMIControl                000023 RLZ    NMIDMACalcLength          00E345 RLA    
+NMIDMAPalette             00E394 RLA    NMIDMAScreen              00E30D RLA    
+NMITemp                   000024 RLZ    ProgramBank0Temp          000020 RLZ    
+ProgramBank1Temp          000021 RLZ    ProgramBank2Temp          000022 RLZ    
+ScanlineOffest            00002D RLZ    ScreenPositionX           00001E RLZ    
+ScreenPositionY           00001F RLZ    SystemControlTemp         00001C RLZ    
+Temp0                     00003C RLZ    Temp1                     00003D RLZ    
+Temp2                     00003E RLZ    VideoControlTemp          00001D RLZ    
+_ClearPaletteBuffer       00E166 RLA    _ClearSprBuffer           00E276 RLA    
+_EnableNMI                00E140 RLA    _Game_Pic0                040000 RLA    
+_InitScreen               00E178 RLA    _InitVT03System           00E449 RLA    
+_InstallVT03              00E453 RLA    _JoyStick                 00A099 RLA    
+_OpenScreenDisplay        00E139 RLA    _PaletteUpdate            00E15F RLA    
+_PatternUpdate            00E151 RLA    _ScreenTable              040000 RLA    
+_SetVectors               00E11E RLA    _StandardIRQ              00E3E3 RLA    
+_StandardNMI              00E281 RLA    _WaitPaletteUpdate        00E158 RLA    
+_WaitPatternUpdate        00E14A RLA    __BSS_RUN__               000407 RLA    
+__BSS_SIZE__              000005 REA    __CONSTRUCTOR_COUNT__     000000 REA    
+__CONSTRUCTOR_TABLE__     00A000 RLA    __DATA_LOAD__             00A000 RLA    
+__DATA_RUN__              000400 RLA    __DATA_SIZE__             000007 REA    
+__DESTRUCTOR_COUNT__      000000 REA    __DESTRUCTOR_TABLE__      00A000 RLA    
+__SRAM_SIZE__             000200 REA    __SRAM_START__            000600 RLA    
+_irq0                     00E09E RLA    _main                     00A007 RLA    
+addr0                     000038 RLZ    addr1                     00003A RLZ    
+callmain                  00E09F RLA    donelib                   00E0BF RLA    
+incsp2                    00E0F6 RLA    initlib                   00E0B6 RLA    
+popax                     00E0EE RLA    ptr1                      00000A RLZ    
+pushax                    00E108 RLA    sp                        000002 RLZ    
+zerobss                   00A06B RLA    
+
+
+Imports list:
+-------------
+DMADestinationAddress (vt03.o):
+    nmidmacalclength.o        nmidmacalclength.s(3)
+    nmidmascreen.o            nmidmascreen.s(3)
+    initscreen.o              initscreen.s(5)
+DMALength (vt03.o):
+    nmidmacalclength.o        nmidmacalclength.s(3)
+    nmidmascreen.o            nmidmascreen.s(3)
+    initscreen.o              initscreen.s(5)
+DMAScreenBank (vt03.o):
+    nmidmascreen.o            nmidmascreen.s(3)
+    initscreen.o              initscreen.s(5)
+DMASourceAddress (vt03.o):
+    nmidmacalclength.o        nmidmacalclength.s(3)
+    nmidmascreen.o            nmidmascreen.s(3)
+    initscreen.o              initscreen.s(5)
+IRQCount (vt03.o):
+    standardirq.o             standardirq.s(6)
+    standardnmi.o             standardnmi.s(6)
+IRQScanLine (vt03.o):
+    standardirq.o             standardirq.s(7)
+    standardnmi.o             standardnmi.s(8)
+    initscreen.o              initscreen.s(4)
+IRQScanLineBank (vt03.o):
+    standardirq.o             standardirq.s(7)
+    standardnmi.o             standardnmi.s(8)
+    initscreen.o              initscreen.s(4)
+InitScreenPoint (vt03.o):
+    initscreen.o              initscreen.s(6)
+Joy1_Button (vt03.o):
+    joystick.o                joystick.s(4)
+Joy1_Press (vt03.o):
+    joystick.o                joystick.s(4)
+Joy1_PressFlag (vt03.o):
+    joystick.o                joystick.s(4)
+Joy2_Button (vt03.o):
+    joystick.o                joystick.s(4)
+Joy2_Press (vt03.o):
+    joystick.o                joystick.s(4)
+Joy2_PressFlag (vt03.o):
+    joystick.o                joystick.s(4)
+NMIControl (vt03.o):
+    nmidmapalette.o           nmidmapalette.s(3)
+    nmidmacalclength.o        nmidmacalclength.s(4)
+    standardnmi.o             standardnmi.s(7)
+    paletteupdate.o           paletteupdate.s(3)
+    waitpaletteupdate.o       waitpaletteupdate.s(3)
+    patternupdate.o           patternupdate.s(3)
+    waitpatternupdate.o       waitpatternupdate.s(3)
+NMIDMACalcLength (nmidmacalclength.o):
+    standardnmi.o             standardnmi.s(3)
+NMIDMAPalette (nmidmapalette.o):
+    standardnmi.o             standardnmi.s(3)
+NMIDMAScreen (nmidmascreen.o):
+    standardnmi.o             standardnmi.s(3)
+NMITemp (vt03.o):
+    nmidmacalclength.o        nmidmacalclength.s(4)
+    nmidmascreen.o            nmidmascreen.s(3)
+ProgramBank0Temp (vt03.o):
+    installvt03.o             installvt03.s(6)
+    standardirq.o             standardirq.s(8)
+    standardnmi.o             standardnmi.s(7)
+    initscreen.o              initscreen.s(3)
+ProgramBank1Temp (vt03.o):
+    installvt03.o             installvt03.s(6)
+ProgramBank2Temp (vt03.o):
+    installvt03.o             installvt03.s(6)
+ScanlineOffest (vt03.o):
+    standardirq.o             standardirq.s(7)
+    standardnmi.o             standardnmi.s(8)
+ScreenPositionX (vt03.o):
+    installvt03.o             installvt03.s(5)
+    standardnmi.o             standardnmi.s(9)
+ScreenPositionY (vt03.o):
+    installvt03.o             installvt03.s(5)
+    standardnmi.o             standardnmi.s(9)
+SystemControlTemp (vt03.o):
+    installvt03.o             installvt03.s(5)
+    standardnmi.o             standardnmi.s(10)
+    enablenmi.o               enablenmi.s(3)
+Temp0 (vt03.o):
+    initscreen.o              initscreen.s(7)
+Temp1 (vt03.o):
+    initscreen.o              initscreen.s(7)
+Temp2 (vt03.o):
+    initscreen.o              initscreen.s(7)
+VideoControlTemp (vt03.o):
+    installvt03.o             installvt03.s(5)
+    standardnmi.o             standardnmi.s(10)
+    openscreendisplay.o       openscreendisplay.s(3)
+_ClearPaletteBuffer (clearoalettebuffer.o):
+    pinball.o                 pinball.s(16)
+_ClearSprBuffer (clearspritebuffer.o):
+    pinball.o                 pinball.s(14)
+_EnableNMI (enablenmi.o):
+    pinball.o                 pinball.s(21)
+_Game_Pic0 (extdata.o):
+    pinball.o                 pinball.s(26)
+_InitScreen (initscreen.o):
+    pinball.o                 pinball.s(15)
+_InitVT03System (initvt03system.o):
+    pinball.o                 pinball.s(13)
+_InstallVT03 (installvt03.o):
+    pinball.o                 pinball.s(12)
+_JoyStick (joystick.o):
+    standardnmi.o             standardnmi.s(4)
+_OpenScreenDisplay (openscreendisplay.o):
+    pinball.o                 pinball.s(22)
+_PaletteUpdate (paletteupdate.o):
+    pinball.o                 pinball.s(19)
+_PatternUpdate (patternupdate.o):
+    pinball.o                 pinball.s(17)
+_ScreenTable (extdata.o):
+    initscreen.o              initscreen.s(8)
+_SetVectors (setvectors.o):
+    pinball.o                 pinball.s(23)
+_StandardIRQ (standardirq.o):
+    pinball.o                 pinball.s(25)
+_StandardNMI (standardnmi.o):
+    pinball.o                 pinball.s(24)
+_WaitPaletteUpdate (waitpaletteupdate.o):
+    pinball.o                 pinball.s(20)
+_WaitPatternUpdate (waitpatternupdate.o):
+    pinball.o                 pinball.s(18)
+__BSS_RUN__ ([linker generated]):
+    zerobss.o                 zerobss.s(8)
+__BSS_SIZE__ ([linker generated]):
+    zerobss.o                 zerobss.s(8)
+__CONSTRUCTOR_COUNT__ ([linker generated]):
+    condes.o                  condes.s(18)
+__CONSTRUCTOR_TABLE__ ([linker generated]):
+    condes.o                  condes.s(18)
+__DATA_LOAD__ ([linker generated]):
+    vt03.o                    crt0.s(20)
+__DATA_RUN__ ([linker generated]):
+    vt03.o                    crt0.s(20)
+__DATA_SIZE__ ([linker generated]):
+    vt03.o                    crt0.s(20)
+__DESTRUCTOR_COUNT__ ([linker generated]):
+    condes.o                  condes.s(19)
+__DESTRUCTOR_TABLE__ ([linker generated]):
+    condes.o                  condes.s(19)
+__SRAM_SIZE__ ([linker generated]):
+    vt03.o                    crt0.s(19)
+__SRAM_START__ ([linker generated]):
+    vt03.o                    crt0.s(19)
+_irq0 (irq.o):
+    standardirq.o             standardirq.s(3)
+_main (pinball.o):
+    callmain.o                callmain.s(11)
+addr0 (vt03.o):
+    initscreen.o              initscreen.s(7)
+addr1 (vt03.o):
+    initscreen.o              initscreen.s(7)
+callmain (callmain.o):
+    vt03.o                    crt0.s(13)
+donelib (condes.o):
+    vt03.o                    crt0.s(13)
+incsp2 (incsp2.o):
+    initvt03system.o          initvt03system.s(3)
+    initscreen.o              initscreen.s(9)
+    setvectors.o              setvectors.s(3)
+initlib (condes.o):
+    vt03.o                    crt0.s(13)
+popax (incsp2.o):
+    setvectors.o              setvectors.s(3)
+ptr1 (vt03.o):
+    zerobss.o                 zerobss.s(9)
+pushax (pushax.o):
+    callmain.o                callmain.s(11)
+    pinball.o                 pinball.s(43)
+sp (vt03.o):
+    incsp2.o                  incsp2.s(8)
+    pushax.o                  pushax.s(8)
+zerobss (zerobss.o):
+    vt03.o                    crt0.s(14)
+

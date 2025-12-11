@@ -1,0 +1,178 @@
+#include	"vt03.h"
+#include	"pinball.h"
+
+void InitLogoSprite();
+int MainMenu();
+void ScreenStepin(void * tableaddr,int delay,int mode);
+int PALStepin(void * tableaddr,int no);
+int GetPALSum(void * tableaddr);
+void DelayNMI(int nmicount);
+void InsertSprite(int x,int y,void * addr);
+void InitSprite();
+void SetSprite(int x,int y,int no,void * addr);
+void DeleteSprite(int no);
+void SetSpriteXY(int x,int y,int no);
+int ReadJoystick1();
+
+int main (void)
+{	
+	InstallVT03();
+	InitVT03System(NewColor+BackgroudColor16+SpriteColor16+LCDLine160);
+	SetVectors((int)StandardNMI,(int)StandardIRQ);
+	ClearSprBuffer();
+	ClearPaletteBuffer();
+	InitScreen(&PICTable[0]);
+	
+	__asm__ ("cli");		
+	EnableNMI();
+	PatternUpdate();
+	WaitPatternUpdate();
+	OpenScreenDisplay();	
+	ScreenStepin(&PALStepTable[0],4,1);	
+	DelayNMI(10);
+	ScreenStepin(&PALStepTable[0],4,0);
+			
+	MainMenu();
+	
+	for(;;);
+	return 1;
+}
+
+int MainMenu()
+{
+	int i,j,k,l;
+	unsigned char key;
+	int MenuSelect;
+	const char CurXY[4][2] =
+	{
+		{0x45,0x5C},
+		{0x55,0x7C},
+		{0x55,0x9C},
+		{0x45,0xBC},
+	};
+	
+	InitScreen(&PICTable[1]);
+	InitSprite();
+	InsertSprite(0x20,0x17,&SpriteTable[0]);
+	InsertSprite(0x50,0x4F,&SpriteTable[1]);
+	InsertSprite(0x60,0x6F,&SpriteTable[1]);
+	InsertSprite(0x60,0x8F,&SpriteTable[1]);
+	InsertSprite(0x50,0xAF,&SpriteTable[1]);
+	InsertSprite(0x45,0x5C,&SpriteTable[2]);
+	SpriteUpdate();
+	OpenSpriteDisplay();
+	PatternUpdate();
+	WaitPatternUpdate();	
+	j = 0;
+	k = 0;
+	l = 0;
+	MenuSelect = 0;
+	while(PALStepin(&PALStepTable[1],j++))
+	{	
+		PaletteUpdate();
+		WaitPaletteUpdate();
+		for(i=0;i<4;i++)
+		{
+			WaitSync();
+		}
+		InitScreen(&PICTable[k+2]);
+		k++;
+		k &= 0x0F;
+		
+		SetSprite(0x45,0x5C,5,&SpriteTable[2+l]);
+		l++;
+		l &= 0x07;
+	}
+	i = 0;
+	for(;;)
+	{
+		WaitSync();
+		i++;
+		key = ReadJoystick1();
+		switch(key)
+		{
+		case JOY_UP:
+			if(MenuSelect>0)
+				MenuSelect--;
+			else
+				MenuSelect=3;	
+			SetSpriteXY(CurXY[MenuSelect][0],CurXY[MenuSelect][1],5);
+			break;	
+			
+		case JOY_DOWN:
+			if(MenuSelect<3)
+				MenuSelect++;
+			else
+				MenuSelect=0;
+			SetSpriteXY(CurXY[MenuSelect][0],CurXY[MenuSelect][1],5);
+			break;
+			
+		case JOY_LEFT:
+			break;
+		case JOY_RIGHT:
+			break;	
+		case JOY_A:
+			break;
+		}
+		
+		if(i>3)
+		{
+			InitScreen(&PICTable[k+2]);
+			k++;
+			k &= 0x0F;
+		
+			SetSprite(CurXY[MenuSelect][0],CurXY[MenuSelect][1],5,&SpriteTable[2+l]);
+			l++;
+			l &= 0x07;
+			
+			i=0;
+		}
+	}
+	
+	return 1;
+}
+
+
+void ScreenStepin(void * tableaddr,int delay,int mode)
+{
+	int i,k;
+	
+	if(mode)
+	{
+		k = 0;
+		while(PALStepin(tableaddr,k))
+		{	
+			k++;
+			PaletteUpdate();
+			WaitPaletteUpdate();
+			for(i=0;i<delay;i++)
+			{
+				WaitSync();
+			}
+		}	
+	}
+	else
+	{
+		k = GetPALSum(tableaddr);
+		while(k>0)
+		{
+			PALStepin(tableaddr,k);
+			PaletteUpdate();
+			WaitPaletteUpdate();
+			for(i=0;i<delay;i++)
+			{
+				WaitSync();
+			}
+			k--;
+		}	
+	}
+}
+
+void DelayNMI(int nmicount)
+{
+	int i;	
+	for(i=0;i<nmicount;i++)
+	{
+		WaitSync();
+	}	
+}

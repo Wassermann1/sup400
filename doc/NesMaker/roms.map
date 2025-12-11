@@ -1,0 +1,5 @@
+名称				类型		开始地址	结束地址
+Darkwing Duck (U) MMC3		PROM		0		20000
+Prince of Persia (Europe)		PROM		20000		40000
+Darkwing Duck (U) MMC3		VROM		40000		60000
+Prince of Persia (Europe)		VROM		60000		60000

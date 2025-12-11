@@ -1,0 +1,63 @@
+[Project ID]
+Signature=UE Proj: v.1
+[Open Files]
+Open File0=M:\Work\VT03\Compiler\pinball\pinball.c
+Open File Pos0=2311
+Open File Line0=936
+Active File Index=0
+Open File Window Pos0=2,3,-1,-1,-4,-30,0,0,832,600
+Open File1=M:\Work\VT03\Compiler\pinball\extdata.s
+Open File Pos1=1335
+Open File Line1=452
+Open File Window Pos1=0,1,-1,-1,-4,-30,88,116,968,597
+Open File2=M:\Work\VT03\Compiler\pinball\pinball.s
+Open File Pos2=1426
+Open File Line2=0
+Open File Window Pos2=0,1,-1,-1,-4,-30,44,58,924,539
+Open File3=M:\Work\VT03\Compiler\pinball\proc.s
+Open File Pos3=3673
+Open File Line3=3620
+Open File Window Pos3=0,1,-1,-1,-4,-30,22,22,720,323
+Open File4=M:\Work\VT03\Compiler\pinball\image\DJJUNGLE_pnt.asm
+Active File Display Mode=3
+Open File Pos4=691
+Open File Line4=277
+Open File Window Pos4=0,1,-1,-1,-4,-30,0,0,836,604
+Open File5=M:\Work\VT03\Compiler\pinball\image\PALStep.asm
+Open File Pos5=0
+Open File Line5=4470
+Open File Window Pos5=0,1,-1,-1,-4,-30,22,29,858,633
+Open File6=M:\Work\VT03\Compiler\pinball\Combin.ini
+Open File Pos6=119
+Open File Line6=0
+Open File Window Pos6=0,1,-1,-1,-4,-30,44,58,924,539
+Open File7=M:\Work\VT03\Compiler\pinball\pinball.h
+Open File Pos7=7
+Open File Line7=0
+Open File Window Pos7=0,1,-1,-1,-4,-30,44,58,924,539
+Open File8=
+Open File Pos8=320
+Open File Line8=314
+Open File Window Pos8=0,1,-1,-1,-4,-23,22,22,720,323
+Open File9=M:\Work\VT03\Compiler\pinball\image\DJJUNGLE_pnt.asm
+Open File Pos9=691
+Open File Line9=277
+Open File Window Pos9=0,1,-1,-1,-4,-30,0,0,836,604
+Open File10=M:\Work\VT03\Compiler\pinball\image\PALStep.asm
+Open File Pos10=0
+Open File Line10=4470
+Open File Window Pos10=0,1,-1,-1,-4,-30,22,29,858,633
+Open File11=M:\Work\VT03\Compiler\pinball\Combin.ini
+Open File Pos11=119
+Open File Line11=0
+Open File Window Pos11=0,1,-1,-1,-4,-30,44,58,924,539
+Open File12=
+[File View]
+Current Select=工程文件
+[Group]
+1=
+[Files]
+0=M:\Work\VT03\Compiler\pinball\extdata.s
+1=M:\Work\VT03\Compiler\pinball\irq.s
+2=M:\Work\VT03\Compiler\pinball\nmi.s
+3=M:\Work\VT03\Compiler\pinball\pinball.c

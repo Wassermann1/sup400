@@ -1,0 +1,476 @@
+Modules list:
+-------------
+vt03.o:
+    ZEROPAGE          Offs = 000000   Size = 00003D
+    STARTUP           Offs = 000000   Size = 00009C
+    VECTORS           Offs = 000000   Size = 000006
+pinball.o:
+    CODE              Offs = 000000   Size = 000639
+    RODATA            Offs = 000000   Size = 000008
+nmi.o:
+    STARTUP           Offs = 00009C   Size = 000003
+proc.o:
+    CODE              Offs = 000639   Size = 0003F2
+extdata.o:
+    RODATA            Offs = 000008   Size = 00007C
+    EXTDATA           Offs = 000000   Size = 001300
+    PGT               Offs = 000000   Size = 00B800
+vt03.lib(addysp.o):
+    STARTUP           Offs = 00009F   Size = 00000E
+vt03.lib(aslax1.o):
+    STARTUP           Offs = 0000AD   Size = 000008
+vt03.lib(aslax2.o):
+    STARTUP           Offs = 0000B5   Size = 00000B
+vt03.lib(callmain.o):
+    BSS               Offs = 000000   Size = 000004
+    STARTUP           Offs = 0000C0   Size = 000017
+vt03.lib(condes.o):
+    BSS               Offs = 000004   Size = 000001
+    DATA              Offs = 000000   Size = 000007
+    STARTUP           Offs = 0000D7   Size = 000038
+vt03.lib(decax1.o):
+    STARTUP           Offs = 00010F   Size = 000007
+vt03.lib(decsp2.o):
+    STARTUP           Offs = 000116   Size = 00000D
+vt03.lib(decsp4.o):
+    STARTUP           Offs = 000123   Size = 00000D
+vt03.lib(enter.o):
+    STARTUP           Offs = 000130   Size = 00000E
+vt03.lib(ge.o):
+    STARTUP           Offs = 00013E   Size = 00000A
+vt03.lib(icmp.o):
+    STARTUP           Offs = 000148   Size = 00002C
+vt03.lib(incax1.o):
+    STARTUP           Offs = 000174   Size = 000007
+vt03.lib(incax2.o):
+    STARTUP           Offs = 00017B   Size = 000007
+vt03.lib(incsp2.o):
+    STARTUP           Offs = 000182   Size = 000016
+vt03.lib(incsp4.o):
+    STARTUP           Offs = 000198   Size = 000005
+vt03.lib(ldaui.o):
+    STARTUP           Offs = 00019D   Size = 000009
+vt03.lib(ldaxsp.o):
+    STARTUP           Offs = 0001A6   Size = 000009
+vt03.lib(leave.o):
+    STARTUP           Offs = 0001AF   Size = 00001D
+vt03.lib(lt.o):
+    STARTUP           Offs = 0001CC   Size = 00000A
+vt03.lib(makebool.o):
+    STARTUP           Offs = 0001D6   Size = 000031
+vt03.lib(pushax.o):
+    STARTUP           Offs = 000207   Size = 00001A
+vt03.lib(staxsp.o):
+    STARTUP           Offs = 000221   Size = 00000B
+vt03.lib(subysp.o):
+    STARTUP           Offs = 00022C   Size = 00000D
+vt03.lib(zerobss.o):
+    CODE              Offs = 000A2B   Size = 000023
+vt03.lib(setvectors.o):
+    STARTUP           Offs = 000239   Size = 00001B
+vt03.lib(openspritedisplay.o):
+    STARTUP           Offs = 000254   Size = 000007
+vt03.lib(openscreendisplay.o):
+    STARTUP           Offs = 00025B   Size = 000007
+vt03.lib(enablenmi.o):
+    STARTUP           Offs = 000262   Size = 00000A
+vt03.lib(waitpatternupdate.o):
+    STARTUP           Offs = 00026C   Size = 000007
+vt03.lib(patternupdate.o):
+    STARTUP           Offs = 000273   Size = 000007
+vt03.lib(waitpaletteupdate.o):
+    STARTUP           Offs = 00027A   Size = 000007
+vt03.lib(paletteupdate.o):
+    STARTUP           Offs = 000281   Size = 000007
+vt03.lib(clearoalettebuffer.o):
+    STARTUP           Offs = 000288   Size = 000012
+vt03.lib(initscreen.o):
+    STARTUP           Offs = 00029A   Size = 000112
+vt03.lib(clearspritebuffer.o):
+    STARTUP           Offs = 0003AC   Size = 00000B
+vt03.lib(waitsync.o):
+    CODE              Offs = 000A4E   Size = 00000B
+vt03.lib(standardnmi.o):
+    STARTUP           Offs = 0003B7   Size = 0000A1
+vt03.lib(nmidmascreen.o):
+    STARTUP           Offs = 000458   Size = 000038
+vt03.lib(nmidmacalclength.o):
+    STARTUP           Offs = 000490   Size = 00004F
+vt03.lib(nmidmapalette.o):
+    STARTUP           Offs = 0004DF   Size = 00004F
+vt03.lib(standardirq.o):
+    STARTUP           Offs = 00052E   Size = 000072
+vt03.lib(initvt03system.o):
+    STARTUP           Offs = 0005A0   Size = 00000A
+vt03.lib(installvt03.o):
+    STARTUP           Offs = 0005AA   Size = 00002F
+vt03.lib(joystick.o):
+    CODE              Offs = 000A59   Size = 00003F
+vt03.lib(nmimultidma.o):
+    ZEROPAGE          Offs = 00003D   Size = 00000A
+    STARTUP           Offs = 0005D9   Size = 00009A
+
+
+Segment list:
+-------------
+Name                  Start   End     Size
+--------------------------------------------
+PGT                   000000  00B7FF  00B800
+ZEROPAGE              000002  000048  000047
+DATA                  000400  000406  000007
+BSS                   000407  00040B  000005
+RODATA                008000  008083  000084
+CODE                  00A000  00AA97  000A98
+STARTUP               00E000  00E672  000673
+VECTORS               00FFFA  00FFFF  000006
+EXTDATA               040000  0412FF  001300
+
+
+Exports list:
+-------------
+DMADestinationAddress     000033 RLZ    DMALength                 000035 RLZ    
+DMAScreenBank             000030 RLZ    DMASourceAddress          000031 RLZ    
+IRQCount                  00002B RLZ    IRQScanLine               00002E RLZ    
+IRQScanLineBank           00002C RLZ    InitScreenPoint           000037 RLZ    
+Joy1_Button               000025 RLZ    Joy1_Press                000027 RLZ    
+Joy1_PressFlag            000026 RLZ    Joy2_Button               000028 RLZ    
+Joy2_Press                00002A RLZ    Joy2_PressFlag            000029 RLZ    
+NMIControl                000023 RLZ    NMIDMACalcLength          00E490 RLA    
+NMIDMAPalette             00E4DF RLA    NMIDMAScreen              00E458 RLA    
+NMIMultiDMA               00E5D9 RLA    NMITemp                   000024 RLZ    
+ProgramBank0Temp          000020 RLZ    ProgramBank1Temp          000021 RLZ    
+ProgramBank2Temp          000022 RLZ    ScanlineOffest            00002D RLZ    
+ScreenPositionX           00001E RLZ    ScreenPositionY           00001F RLZ    
+SystemControlTemp         00001C RLZ    Temp0                     00003C RLZ    
+Temp1                     00003D RLZ    Temp2                     00003E RLZ    
+VideoControlTemp          00001D RLZ    _ClearPaletteBuffer       00E288 RLA    
+_ClearSprBuffer           00E3AC RLA    _EnableNMI                00E262 RLA    
+_GetPALSum                00A9D0 RLA    _InitScreen               00E29A RLA    
+_InitSprite               00A64D RLA    _InitVT03System           00E5A0 RLA    
+_InsertSprite             00A667 RLA    _InstallVT03              00E5AA RLA    
+_JoyStick                 00AA64 RLA    _OpenScreenDisplay        00E25B RLA    
+_OpenSpriteDisplay        00E254 RLA    _PALStepTable             008050 RLA    
+_PALStepin                00A8D1 RLA    _PICTable                 008008 RLA    
+_PaletteUpdate            00E281 RLA    _PatternUpdate            00E273 RLA    
+_ReadJoystick1            00A639 RLA    _SetSprite                00A853 RLA    
+_SetSpriteXY              00A7F9 RLA    _SetVectors               00E239 RLA    
+_SpriteTable              00805C RLA    _SpriteUpdate             00A660 RLA    
+_StandardIRQ              00E52E RLA    _StandardNMI              00E3B7 RLA    
+_WaitPaletteUpdate        00E27A RLA    _WaitPatternUpdate        00E26C RLA    
+_WaitSync                 00AA4E RLA    __BSS_RUN__               000407 RLA    
+__BSS_SIZE__              000005 REA    __CONSTRUCTOR_COUNT__     000000 REA    
+__CONSTRUCTOR_TABLE__     008084 RLA    __DATA_LOAD__             008084 RLA    
+__DATA_RUN__              000400 RLA    __DATA_SIZE__             000007 REA    
+__DESTRUCTOR_COUNT__      000000 REA    __DESTRUCTOR_TABLE__      008084 RLA    
+__SRAM_SIZE__             000200 REA    __SRAM_START__            000600 RLA    
+_irq0                     00E09E RLA    _main                     00A5A0 RLA    
+addr0                     000038 RLZ    addr1                     00003A RLZ    
+addysp                    00E0A0 RLA    aslax1                    00E0AD RLA    
+aslax2                    00E0B5 RLA    boolge                    00E1EC RLA    
+boollt                    00E1E4 RLA    callmain                  00E0C0 RLA    
+decax1                    00E10F RLA    decsp2                    00E116 RLA    
+decsp4                    00E123 RLA    donelib                   00E0E0 RLA    
+enter                     00E130 RLA    incax1                    00E174 RLA    
+incax2                    00E17B RLA    incsp2                    00E18A RLA    
+incsp4                    00E198 RLA    initlib                   00E0D7 RLA    
+ldauidx                   00E19D RLA    ldaxysp                   00E1A8 RLA    
+leavey                    00E1B9 RLA    popax                     00E182 RLA    
+ptr1                      00000A RLZ    pushax                    00E20B RLA    
+regsave                   000006 RLZ    sp                        000002 RLZ    
+sreg                      000004 RLZ    staxysp                   00E223 RLA    
+subysp                    00E22C RLA    tmp1                      000012 RLZ    
+tosgea0                   00E140 RLA    tosicmp                   00E148 RLA    
+toslta0                   00E1CE RLA    tosltax                   00E1D0 RLA    
+zerobss                   00AA2B RLA    
+
+
+Imports list:
+-------------
+DMADestinationAddress (vt03.o):
+    nmidmacalclength.o        nmidmacalclength.s(3)
+    nmidmascreen.o            nmidmascreen.s(3)
+    initscreen.o              initscreen.s(5)
+DMALength (vt03.o):
+    nmidmacalclength.o        nmidmacalclength.s(3)
+    nmidmascreen.o            nmidmascreen.s(3)
+    initscreen.o              initscreen.s(5)
+DMAScreenBank (vt03.o):
+    nmidmascreen.o            nmidmascreen.s(3)
+    initscreen.o              initscreen.s(5)
+DMASourceAddress (vt03.o):
+    nmidmacalclength.o        nmidmacalclength.s(3)
+    nmidmascreen.o            nmidmascreen.s(3)
+    initscreen.o              initscreen.s(5)
+IRQCount (vt03.o):
+    standardirq.o             standardirq.s(6)
+    standardnmi.o             standardnmi.s(7)
+IRQScanLine (vt03.o):
+    standardirq.o             standardirq.s(7)
+    standardnmi.o             standardnmi.s(9)
+    initscreen.o              initscreen.s(4)
+IRQScanLineBank (vt03.o):
+    standardirq.o             standardirq.s(7)
+    standardnmi.o             standardnmi.s(9)
+    initscreen.o              initscreen.s(4)
+InitScreenPoint (vt03.o):
+    initscreen.o              initscreen.s(6)
+Joy1_Button (vt03.o):
+    joystick.o                joystick.s(4)
+Joy1_Press (vt03.o):
+    joystick.o                joystick.s(4)
+    proc.o                    proc.s(6)
+Joy1_PressFlag (vt03.o):
+    joystick.o                joystick.s(4)
+    proc.o                    proc.s(5)
+Joy2_Button (vt03.o):
+    joystick.o                joystick.s(4)
+Joy2_Press (vt03.o):
+    joystick.o                joystick.s(4)
+Joy2_PressFlag (vt03.o):
+    joystick.o                joystick.s(4)
+NMIControl (vt03.o):
+    nmimultidma.o             nmimultidma.s(3)
+    nmidmapalette.o           nmidmapalette.s(3)
+    nmidmacalclength.o        nmidmacalclength.s(4)
+    standardnmi.o             standardnmi.s(8)
+    paletteupdate.o           paletteupdate.s(3)
+    waitpaletteupdate.o       waitpaletteupdate.s(3)
+    patternupdate.o           patternupdate.s(3)
+    waitpatternupdate.o       waitpatternupdate.s(3)
+    proc.o                    vt03.inc(278)
+NMIDMACalcLength (nmidmacalclength.o):
+    standardnmi.o             standardnmi.s(3)
+NMIDMAPalette (nmidmapalette.o):
+    standardnmi.o             standardnmi.s(3)
+NMIDMAScreen (nmidmascreen.o):
+    standardnmi.o             standardnmi.s(3)
+NMIMultiDMA (nmimultidma.o):
+    standardnmi.o             standardnmi.s(4)
+NMITemp (vt03.o):
+    nmidmacalclength.o        nmidmacalclength.s(4)
+    nmidmascreen.o            nmidmascreen.s(3)
+ProgramBank0Temp (vt03.o):
+    installvt03.o             installvt03.s(6)
+    standardirq.o             standardirq.s(8)
+    standardnmi.o             standardnmi.s(8)
+    initscreen.o              initscreen.s(3)
+    proc.o                    vt03.inc(276)
+ProgramBank1Temp (vt03.o):
+    installvt03.o             installvt03.s(6)
+ProgramBank2Temp (vt03.o):
+    installvt03.o             installvt03.s(6)
+ScanlineOffest (vt03.o):
+    standardirq.o             standardirq.s(7)
+    standardnmi.o             standardnmi.s(9)
+ScreenPositionX (vt03.o):
+    installvt03.o             installvt03.s(5)
+    standardnmi.o             standardnmi.s(10)
+ScreenPositionY (vt03.o):
+    installvt03.o             installvt03.s(5)
+    standardnmi.o             standardnmi.s(10)
+SystemControlTemp (vt03.o):
+    installvt03.o             installvt03.s(5)
+    standardnmi.o             standardnmi.s(11)
+    enablenmi.o               enablenmi.s(3)
+Temp0 (vt03.o):
+    initscreen.o              initscreen.s(7)
+    proc.o                    vt03.inc(282)
+Temp1 (vt03.o):
+    initscreen.o              initscreen.s(7)
+    proc.o                    vt03.inc(282)
+Temp2 (vt03.o):
+    initscreen.o              initscreen.s(7)
+    proc.o                    vt03.inc(282)
+VideoControlTemp (vt03.o):
+    installvt03.o             installvt03.s(5)
+    standardnmi.o             standardnmi.s(11)
+    openscreendisplay.o       openscreendisplay.s(3)
+    openspritedisplay.o       openspritedisplay.s(3)
+_ClearPaletteBuffer (clearoalettebuffer.o):
+    pinball.o                 pinball.s(17)
+_ClearSprBuffer (clearspritebuffer.o):
+    pinball.o                 pinball.s(15)
+_EnableNMI (enablenmi.o):
+    pinball.o                 pinball.s(22)
+_GetPALSum (proc.o):
+    pinball.o                 pinball.s(34)
+_InitScreen (initscreen.o):
+    pinball.o                 pinball.s(16)
+_InitSprite (proc.o):
+    pinball.o                 pinball.s(37)
+_InitVT03System (initvt03system.o):
+    pinball.o                 pinball.s(13)
+_InsertSprite (proc.o):
+    pinball.o                 pinball.s(36)
+_InstallVT03 (installvt03.o):
+    pinball.o                 pinball.s(12)
+_JoyStick (joystick.o):
+    standardnmi.o             standardnmi.s(5)
+_OpenScreenDisplay (openscreendisplay.o):
+    pinball.o                 pinball.s(23)
+_OpenSpriteDisplay (openspritedisplay.o):
+    pinball.o                 pinball.s(24)
+_PALStepTable (extdata.o):
+    pinball.o                 pinball.s(29)
+_PALStepin (proc.o):
+    pinball.o                 pinball.s(33)
+_PICTable (extdata.o):
+    pinball.o                 pinball.s(28)
+_PaletteUpdate (paletteupdate.o):
+    pinball.o                 pinball.s(20)
+_PatternUpdate (patternupdate.o):
+    pinball.o                 pinball.s(18)
+_ReadJoystick1 (proc.o):
+    pinball.o                 pinball.s(40)
+_SetSprite (proc.o):
+    pinball.o                 pinball.s(38)
+_SetSpriteXY (proc.o):
+    pinball.o                 pinball.s(39)
+_SetVectors (setvectors.o):
+    pinball.o                 pinball.s(25)
+_SpriteTable (extdata.o):
+    pinball.o                 pinball.s(30)
+_SpriteUpdate (proc.o):
+    pinball.o                 pinball.s(42)
+_StandardIRQ (standardirq.o):
+    pinball.o                 pinball.s(27)
+_StandardNMI (standardnmi.o):
+    pinball.o                 pinball.s(26)
+_WaitPaletteUpdate (waitpaletteupdate.o):
+    pinball.o                 pinball.s(21)
+_WaitPatternUpdate (waitpatternupdate.o):
+    pinball.o                 pinball.s(19)
+_WaitSync (waitsync.o):
+    pinball.o                 pinball.s(14)
+__BSS_RUN__ ([linker generated]):
+    zerobss.o                 zerobss.s(8)
+__BSS_SIZE__ ([linker generated]):
+    zerobss.o                 zerobss.s(8)
+__CONSTRUCTOR_COUNT__ ([linker generated]):
+    condes.o                  condes.s(18)
+__CONSTRUCTOR_TABLE__ ([linker generated]):
+    condes.o                  condes.s(18)
+__DATA_LOAD__ ([linker generated]):
+    vt03.o                    crt0.s(20)
+__DATA_RUN__ ([linker generated]):
+    vt03.o                    crt0.s(20)
+__DATA_SIZE__ ([linker generated]):
+    vt03.o                    crt0.s(20)
+__DESTRUCTOR_COUNT__ ([linker generated]):
+    condes.o                  condes.s(19)
+__DESTRUCTOR_TABLE__ ([linker generated]):
+    condes.o                  condes.s(19)
+__SRAM_SIZE__ ([linker generated]):
+    vt03.o                    crt0.s(19)
+__SRAM_START__ ([linker generated]):
+    vt03.o                    crt0.s(19)
+_irq0 (nmi.o):
+    standardirq.o             standardirq.s(3)
+_main (pinball.o):
+    callmain.o                callmain.s(11)
+addr0 (vt03.o):
+    initscreen.o              initscreen.s(7)
+    proc.o                    vt03.inc(282)
+addr1 (vt03.o):
+    initscreen.o              initscreen.s(7)
+    proc.o                    vt03.inc(282)
+addysp (addysp.o):
+    leave.o                   leave.s(13)
+    incsp4.o                  incsp4.s(8)
+    pinball.o                 pinball.s(659)
+aslax1 (aslax1.o):
+    pinball.o                 pinball.s(332)
+aslax2 (aslax2.o):
+    pinball.o                 pinball.s(211)
+boolge (makebool.o):
+    ge.o                      ge.s(8)
+boollt (makebool.o):
+    lt.o                      lt.s(8)
+callmain (callmain.o):
+    vt03.o                    crt0.s(13)
+decax1 (decax1.o):
+    pinball.o                 pinball.s(320)
+    pinball.o                 pinball.s(652)
+decsp2 (decsp2.o):
+    pinball.o                 pinball.s(674)
+decsp4 (decsp4.o):
+    pinball.o                 pinball.s(542)
+donelib (condes.o):
+    vt03.o                    crt0.s(13)
+enter (enter.o):
+    pinball.o                 pinball.s(66)
+incax1 (incax1.o):
+    pinball.o                 pinball.s(171)
+    pinball.o                 pinball.s(566)
+    pinball.o                 pinball.s(693)
+incax2 (incax2.o):
+    pinball.o                 pinball.s(210)
+incsp2 (incsp2.o):
+    initvt03system.o          initvt03system.s(3)
+    initscreen.o              initscreen.s(9)
+    setvectors.o              setvectors.s(3)
+incsp4 (incsp4.o):
+    pinball.o                 pinball.s(699)
+initlib (condes.o):
+    vt03.o                    crt0.s(13)
+ldauidx (ldaui.o):
+    pinball.o                 pinball.s(341)
+ldaxysp (ldaxsp.o):
+    pinball.o                 pinball.s(168)
+    pinball.o                 pinball.s(553)
+    pinball.o                 pinball.s(680)
+leavey (leave.o):
+    pinball.o                 pinball.s(527)
+popax (incsp2.o):
+    setvectors.o              setvectors.s(3)
+    proc.o                    proc.s(4)
+ptr1 (vt03.o):
+    zerobss.o                 zerobss.s(9)
+    ldaui.o                   ldaui.s(8)
+pushax (pushax.o):
+    callmain.o                callmain.s(11)
+    pinball.o                 pinball.s(76)
+    pinball.o                 pinball.s(554)
+    pinball.o                 pinball.s(681)
+    pinball.o                 pinball.s(718)
+regsave (vt03.o):
+    pinball.o                 pinball.s(10)
+sp (vt03.o):
+    subysp.o                  subysp.s(9)
+    staxsp.o                  staxsp.s(8)
+    pushax.o                  pushax.s(8)
+    leave.o                   leave.s(14)
+    ldaxsp.o                  ldaxsp.s(8)
+    incsp2.o                  incsp2.s(8)
+    icmp.o                    icmp.s(9)
+    enter.o                   enter.s(8)
+    decsp4.o                  decsp4.s(8)
+    decsp2.o                  decsp2.s(8)
+    addysp.o                  addysp.s(8)
+    pinball.o                 pinball.s(10)
+sreg (vt03.o):
+    icmp.o                    icmp.s(9)
+staxysp (staxsp.o):
+    pinball.o                 pinball.s(151)
+    pinball.o                 pinball.s(551)
+    pinball.o                 pinball.s(678)
+subysp (subysp.o):
+    pinball.o                 pinball.s(68)
+tmp1 (vt03.o):
+    aslax2.o                  aslax2.s(8)
+    aslax1.o                  aslax1.s(8)
+    pinball.o                 pinball.s(10)
+tosgea0 (ge.o):
+    pinball.o                 pinball.s(314)
+    pinball.o                 pinball.s(611)
+tosicmp (icmp.o):
+    lt.o                      lt.s(8)
+    ge.o                      ge.s(8)
+toslta0 (lt.o):
+    pinball.o                 pinball.s(193)
+tosltax (lt.o):
+    pinball.o                 pinball.s(584)
+    pinball.o                 pinball.s(684)
+zerobss (zerobss.o):
+    vt03.o                    crt0.s(14)
+

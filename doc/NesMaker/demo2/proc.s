@@ -1,0 +1,630 @@
+	.import	_PaletteUpdate
+	.import	_WaitPaletteUpdate
+	.import	_WaitSync
+	.import	popax
+	.importzp Joy1_PressFlag
+	.importzp Joy1_Press
+	
+	.export	_PALStepin
+	.export	_GetPALSum
+	.export	_InsertSprite
+	.export	_InitSprite
+	.export	_SpriteUpdate
+	.export	_SetSprite
+	.export	_DeleteSprite
+	.export	_SetSpriteXY
+	.export _ReadJoystick1
+
+SpriteBuff = $200
+SpritePtr = $106
+SpriteStack = $107
+.include	"vt03.inc"	
+.code
+_ReadJoystick1:
+	ldx	Joy1_Press
+	beq	@0
+	txa							; clear press flag
+	ora	Joy1_PressFlag
+	sta	Joy1_PressFlag
+	lda	#$00
+	sta	Joy1_Press
+	txa
+	ldx	#$00
+	rts
+@0:	lda	#$00
+	rts
+;	
+_InitSprite:
+	lda	#$FE
+	ldx	#$00
+@0:
+	sta	SpriteBuffer,x
+	inx
+	bne	@0
+	lda	#$00
+	sta	SpritePtr
+	sta	SpriteStack
+	rts
+_SpriteUpdate:
+	lda	#%10000000
+	ora	NMIControl
+	sta	NMIControl
+	rts	
+;void InsertSprite(int x,int y,void * addr)	
+_InsertSprite:
+	jsr	popax
+	sta	addr0
+	stx	addr0+1	
+	
+	jsr	popax
+	sta	addr1+1			;y
+	
+	jsr	popax
+	sta	addr1			;x
+	
+	
+	ldx	SpritePtr		;Sprite 指针
+	ldy	#$00	
+	lda	(addr0),y		;体号
+	sta	SpriteStack+1,x
+	pha		
+	inx
+	iny	
+	iny
+	lda	(addr0),y		;地址低位
+	sta	SpriteStack+1,x
+	pha
+	inx
+	iny	
+	lda	(addr0),y		;地址高位
+	sta	SpriteStack+1,x
+	sta	addr0+1
+	inx
+	inx
+	stx	SpritePtr
+	pla
+	sta	addr0
+	pla
+	tax
+	lda	ProgramBank0Temp
+	pha	
+	stx	ProgramBank0Temp
+	stx	ProgramBank0
+		
+	ldx	SpritePtr
+	lda	SpriteStack-4,x
+	tax
+	jsr	InsertSpriteSub
+	txa
+	ldx	SpritePtr
+	sta	SpriteStack,x	
+	pla
+	sta	ProgramBank0Temp
+	sta	ProgramBank0
+	rts
+	
+InsertSpriteSub:		
+	ldy	#$00
+@1:
+	lda	(addr0),y
+	cmp	#$FF
+	beq	@2
+	clc
+	adc	addr1+1
+	sta	SpriteBuff,x
+	iny
+	inx
+	lda	(addr0),y
+	sta	SpriteBuff,x
+	iny
+	inx
+	lda	(addr0),y
+	sta	SpriteBuff,x
+	iny
+	inx
+	lda	(addr0),y
+	clc
+	adc	addr1
+	sta	SpriteBuff,x
+	iny
+	inx
+	bne	@1
+@2:
+	rts
+	
+DeleteSpriteSub:
+	ldx	Temp1			
+@1:
+	ldy	#$00
+	lda	(addr0),y
+	cmp	#$FF
+	beq	@2
+	ldy	Temp2
+	lda	SpriteBuff,y
+	sta	SpriteBuff,x
+	iny
+	inx
+	lda	SpriteBuff,y
+	sta	SpriteBuff,x
+	iny
+	inx
+	lda	SpriteBuff,y
+	sta	SpriteBuff,x
+	iny
+	inx
+	lda	SpriteBuff,y
+	sta	SpriteBuff,x
+	iny
+	inx
+	sty	Temp2
+	clc
+	lda	addr0
+	adc	#$04
+	sta	addr0
+	lda	#$00
+	adc	addr0+1
+	sta	addr0+1
+	bne	@1
+@2:
+	rts
+		
+;void DeleteSprite(int no)
+_DeleteSprite:
+	jsr	popax
+	asl
+	asl
+	sta	Temp0
+	clc
+	adc	#$04
+	cmp	SpritePtr
+	beq	@0
+	bcc	@4
+	rts
+@4:
+	ldx	Temp0
+	lda	SpriteStack,x
+	sta	Temp1
+	lda	SpriteStack+4,x
+	sta	Temp2
+	inx
+	lda	SpriteStack+4,x
+	tay
+	inx
+	lda	SpriteStack+4,x
+	sta	addr0
+	inx
+	lda	SpriteStack+4,x
+	sta	addr0+1
+	lda	ProgramBank0Temp
+	pha	
+	sty	ProgramBank0Temp
+	sty	ProgramBank0		
+	jsr	DeleteSpriteSub
+	txa
+	ldx	Temp0
+	sta	SpriteStack+4,x
+	pla
+	sta	ProgramBank0Temp
+	sta	ProgramBank0
+	clc
+	lda	#$04
+	adc	Temp0
+	sta	Temp0
+	adc	#$04
+	cmp	SpritePtr
+	bcc	@4
+	sec
+	lda	SpritePtr
+	sbc	#$04
+	sta	SpritePtr
+	ldx	SpritePtr
+	lda	SpriteStack,x
+	tax
+@5:
+	lda	SpriteBuff,x
+	cmp	#$FE
+	beq	@3
+	lda	#$FE
+	sta	SpriteBuff,x
+	inx
+	sta	SpriteBuff,x
+	inx
+	sta	SpriteBuff,x
+	inx
+	sta	SpriteBuff,x
+	inx
+	bne	@5	
+@0:
+	ldx	Temp0
+	lda	SpriteStack,x
+	sta	Temp0
+	inx	
+	lda	SpriteStack,x
+	tay
+	inx
+	lda	SpriteStack,x
+	sta	addr0
+	inx
+	lda	SpriteStack,x
+	sta	addr0+1
+	lda	ProgramBank0Temp
+	pha	
+	sty	ProgramBank0Temp
+	sty	ProgramBank0		
+	ldx	Temp0
+	ldy	#$00
+@1:
+	lda	(addr0),y
+	cmp	#$FF
+	beq	@2
+	lda	#$FE
+	sta	SpriteBuff,x
+	inx
+	iny
+	sta	SpriteBuff,x
+	inx
+	iny
+	sta	SpriteBuff,x
+	inx
+	iny
+	sta	SpriteBuff,x
+	inx
+	iny
+	bne	@1
+@2:
+	sec
+	lda	SpritePtr
+	sbc	#$04
+	sta	SpritePtr
+	pla
+	sta	ProgramBank0Temp
+	sta	ProgramBank0
+@3:
+	rts
+;void SetSpriteXY(int x,int y,int no)	
+_SetSpriteXY:
+	jsr	popax
+	asl
+	asl
+	sta	addr0
+	
+	jsr	popax
+	sta	addr1+1			;y
+	
+	jsr	popax
+	sta	addr1			;x
+	
+	ldx	addr0
+	lda	SpriteStack,x
+	sta	Temp0
+	inx	
+	lda	SpriteStack,x
+	tay
+	inx
+	lda	SpriteStack,x
+	sta	addr0
+	inx
+	lda	SpriteStack,x
+	sta	addr0+1
+	lda	ProgramBank0Temp
+	pha	
+	sty	ProgramBank0Temp
+	sty	ProgramBank0		
+	ldx	Temp0
+	ldy	#$00
+@1:
+	lda	(addr0),y
+	cmp	#$FF
+	beq	@0
+	clc
+	adc	addr1+1
+	sta	SpriteBuff,x
+	inx
+	iny
+	inx
+	iny
+	inx
+	iny
+	lda	(addr0),y
+	clc
+	adc	addr1
+	sta	SpriteBuff,x
+	inx
+	iny
+	bne	@1
+@0:
+	pla
+	sta	ProgramBank0Temp
+	sta	ProgramBank0			
+	rts
+;
+;void SetSprite(int x,int y,int no,void * addr)	
+_SetSprite:
+	jsr	popax
+	sta	addr0
+	stx	addr0+1
+	
+	jsr	popax
+	asl
+	asl
+	sta	Temp0
+	
+	jsr	popax
+	sta	addr1+1			;y
+	
+	jsr	popax
+	sta	addr1			;x
+	
+	ldx	Temp0			;Sprite 指针
+	ldy	#$00	
+	lda	(addr0),y		;体号
+	sta	SpriteStack+1,x
+	pha		
+	inx
+	iny	
+	iny
+	lda	(addr0),y		;地址低位
+	sta	SpriteStack+1,x
+	pha
+	inx
+	iny	
+	lda	(addr0),y		;地址高位
+	sta	SpriteStack+1,x
+	sta	addr0+1
+	pla
+	sta	addr0
+	pla
+	tax
+	lda	ProgramBank0Temp
+	pha	
+	stx	ProgramBank0Temp
+	stx	ProgramBank0
+	
+	ldx	Temp0
+	lda	SpriteStack,x
+	tax	
+	ldy	#$00
+@1:
+	lda	(addr0),y
+	cmp	#$FF
+	beq	@2
+	clc
+	adc	addr1+1
+	sta	SpriteBuff,x
+	iny
+	inx
+	lda	(addr0),y
+	sta	SpriteBuff,x
+	iny
+	inx
+	lda	(addr0),y
+	sta	SpriteBuff,x
+	iny
+	inx
+	lda	(addr0),y
+	clc
+	adc	addr1
+	sta	SpriteBuff,x
+	iny
+	inx
+	bne	@1
+@2:
+	txa
+	ldx	Temp0
+	sta	SpriteStack+4,x	
+	pla
+	sta	ProgramBank0Temp
+	sta	ProgramBank0
+	rts
+		
+_PALStepin:
+	jsr	popax
+	sta	addr1		;个数
+		
+	jsr	popax
+	sta	addr0
+	stx	addr0+1
+		
+	ldy	#$00
+	lda	(addr0),y
+	tax
+	iny
+	iny
+	lda	(addr0),y
+	pha
+	iny
+	lda	(addr0),y
+	sta	addr0+1
+	pla
+	sta	addr0
+	lda	ProgramBank0Temp
+	pha	
+	stx	ProgramBank0Temp
+	stx	ProgramBank0
+		
+	lda	#$00
+	sta	addr1+1	
+@2:
+	lda	addr1+1
+	cmp	addr1
+	beq	@0	
+	ldy	#$00
+@3:
+	lda	(addr0),y
+	beq	@1
+	cmp	#$FF
+	beq	@q	
+	clc
+	lda	#$06
+	adc	addr0
+	sta	addr0
+	lda	#$00
+	adc	addr0+1
+	sta	addr0+1
+	jmp	@3
+@1:
+	clc
+	lda	#$01
+	adc	addr0
+	sta	addr0
+	lda	#$00
+	adc	addr0+1
+	sta	addr0+1
+	inc	addr1+1
+	bne	@2				
+@0:	
+	ldy	#$00
+	lda	(addr0),y
+	beq	@4
+	cmp	#$FF
+	beq	@q
+	sta	Temp1	
+	iny
+	lda	(addr0),y		;Start
+	sta	Temp2	
+	iny
+	lda	(addr0),y
+	tax
+	iny
+	iny
+	lda	(addr0),y
+	sta	addr1
+	iny
+	lda	(addr0),y
+	sta	addr1+1
+	clc
+	lda	#$06
+	adc	addr0
+	sta	addr0
+	lda	#$00
+	adc	addr0
+	sta	addr0
+	lda	ProgramBank0Temp
+	pha
+	stx	ProgramBank0Temp
+	stx	ProgramBank0
+	jsr	SetPALSub	
+	pla
+	sta	ProgramBank0Temp
+	sta	ProgramBank0		
+	jmp	@0	
+@4:	pla
+	sta	ProgramBank0Temp
+	sta	ProgramBank0
+	ldx     #$00
+	lda     #$01
+	rts		
+@q:	
+	pla
+	sta	ProgramBank0Temp
+	sta	ProgramBank0
+	ldx     #$00
+	lda     #$00
+	rts	
+	
+SetPALSub:	
+	lda	Temp1	
+	sta	Temp0
+	ldx	Temp2
+; Palette low byte
+	ldy	#$00
+@0:
+	lda	(addr1),y
+	sta	PaletteBuffer,x
+	iny
+	inx
+	txa
+	and	#$03
+	bne	@2
+	txa
+	clc
+	adc	#$1c
+	bpl	@1
+	adc	#$84
+@1:
+	tax
+@2:
+	dec	Temp0
+	bne	@0
+; Palette high byte
+	lda	Temp1	
+	sta	Temp0
+	ldx	Temp2
+@3:
+	lda	(addr1),y
+	sta	PaletteBuffer+$80,x
+	iny
+	inx
+	txa
+	and	#$03
+	bne	@5
+	txa
+	clc
+	adc	#$1c
+	bpl	@4
+	adc	#$84
+@4:
+	tax
+@5:
+	dec	Temp0
+	bne	@3	
+	lda	PaletteBuffer+$00
+	sta	PaletteBuffer+$10
+	lda	PaletteBuffer+$80
+	sta	PaletteBuffer+$90
+	rts	
+	
+_GetPALSum:
+	jsr	popax
+	sta	addr0
+	stx	addr0+1
+		
+	ldy	#$00
+	lda	(addr0),y
+	tax
+	iny
+	iny
+	lda	(addr0),y
+	pha
+	iny
+	lda	(addr0),y
+	sta	addr0+1
+	pla
+	sta	addr0
+	lda	ProgramBank0Temp
+	pha	
+	stx	ProgramBank0Temp
+	stx	ProgramBank0
+	
+	lda	#$00
+	sta	addr1
+		
+	ldy	#$00
+@0:	lda	(addr0),y
+	beq	@1
+	cmp	#$FF
+	beq	@q
+	clc
+	lda	#$06
+	adc	addr0
+	sta	addr0
+	lda	#$00
+	adc	addr0
+	sta	addr0	
+	jmp	@0
+@1:	clc
+	lda	#$01
+	adc	addr0
+	sta	addr0
+	lda	#$00
+	adc	addr0
+	sta	addr0
+	inc	addr1
+	bne	@0
+@q:	pla
+	sta	ProgramBank0Temp
+	sta	ProgramBank0
+	ldx	#$00
+	lda	addr1
+	rts	
+				

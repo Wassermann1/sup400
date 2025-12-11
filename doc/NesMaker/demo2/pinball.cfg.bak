@@ -1,0 +1,57 @@
+MEMORY {
+    ZP:  start = $02, size = $FE, type = rw, define = yes;
+
+    # Video ROM Banks
+    VROM: start = $0000, size = $40000, file = %O ,fill = yes, define = yes;    
+    
+    DATAS: start = $40000, size = $3A000, file = %O ,fill = yes, define = yes;
+    
+    # Program DATA 8K
+    PDATA: start = $8000, size = $2000, file = %O, fill = yes;
+    
+    # Program Code 16K
+    PCODE: start = $A000, size = $4000, file = %O, fill = yes;
+    
+    # Startup Code 8K
+    ROMS: start = $E000, size = $1FFA, file = %O, fill = yes;
+    
+    # Hardware Vectors at End of 2nd 8K ROM
+    ROMV: start = $fffA, size = $6, file = %O, fill = yes;
+
+    # standard 2k SRAM (-zeropage)
+    # $0100-$0200 cpu stack
+    SRAM: start = $0600, size = $0200, define = yes;
+
+    # additional 8K SRAM Bank
+    # - data (run)
+    # - bss
+    # - heap
+    RAM: start = $0400, size = $0200, define = yes;
+}
+
+SEGMENTS {
+    PGT:	load = VROM,	type = wprot, define = yes;
+    EXTDATA:	load = DATAS,	type = wprot, define = yes;	
+    RODATA:	load = PDATA,	type = wprot, define = yes;
+    DATA:     	load = PDATA,	run = RAM, type = rw, define = yes;
+    CODE:     	load = PCODE,	type = wprot, define = yes;  
+    STARTUP:	load = ROMS,	type = wprot, define = yes;
+    VECTORS:	load = ROMV,	type = wprot;
+    BSS:        load = RAM,	type = bss, define = yes;
+    ZEROPAGE:	load = ZP,	type = zp;
+}
+
+FEATURES {
+    CONDES: segment = RODATA,
+	    type = constructor,
+	    label = __CONSTRUCTOR_TABLE__,
+	    count = __CONSTRUCTOR_COUNT__;
+    CONDES: segment = RODATA,
+	    type = destructor,
+	    label = __DESTRUCTOR_TABLE__,
+	    count = __DESTRUCTOR_COUNT__;
+}
+
+SYMBOLS {
+    __STACKSIZE__ = $0200;  	# 2 pages stack
+}

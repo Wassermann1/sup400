@@ -1,0 +1,814 @@
+Modules list:
+-------------
+vt03.o:
+    ZEROPAGE          Offs = 000000   Size = 000040
+    STARTUP           Offs = 000000   Size = 0000C6
+    VECTORS           Offs = 000000   Size = 000006
+demo1.o:
+    CODE              Offs = 000000   Size = 0008D9
+    RODATA            Offs = 000000   Size = 000080
+    BSS               Offs = 000000   Size = 000020
+proc.o:
+    CODE              Offs = 0008D9   Size = 000520
+    RODATA            Offs = 000100   Size = 000600
+    ZEROPAGE          Offs = 000040   Size = 000010
+    STARTUP           Offs = 0000C6   Size = 0004C3
+    DEFINE            Offs = 000000   Size = 001048
+vt03.lib(add.o):
+    STARTUP           Offs = 000589   Size = 00001A
+vt03.lib(addeqsp.o):
+    STARTUP           Offs = 0005A3   Size = 000011
+vt03.lib(addysp.o):
+    STARTUP           Offs = 0005B4   Size = 00000E
+vt03.lib(aslax1.o):
+    STARTUP           Offs = 0005C2   Size = 000008
+vt03.lib(aslax3.o):
+    STARTUP           Offs = 0005CA   Size = 00000E
+vt03.lib(axlong.o):
+    STARTUP           Offs = 0005D8   Size = 000012
+vt03.lib(callmain.o):
+    BSS               Offs = 000020   Size = 000004
+    STARTUP           Offs = 0005EA   Size = 000017
+vt03.lib(condes.o):
+    BSS               Offs = 000024   Size = 000001
+    DATA              Offs = 000000   Size = 000007
+    STARTUP           Offs = 000601   Size = 000038
+vt03.lib(decax1.o):
+    STARTUP           Offs = 000639   Size = 000007
+vt03.lib(decsp2.o):
+    STARTUP           Offs = 000640   Size = 00000D
+vt03.lib(decsp3.o):
+    STARTUP           Offs = 00064D   Size = 00000D
+vt03.lib(decsp4.o):
+    STARTUP           Offs = 00065A   Size = 00000D
+vt03.lib(decsp6.o):
+    STARTUP           Offs = 000667   Size = 00000D
+vt03.lib(decsp7.o):
+    STARTUP           Offs = 000674   Size = 00000D
+vt03.lib(enter.o):
+    STARTUP           Offs = 000681   Size = 00000E
+vt03.lib(ge.o):
+    STARTUP           Offs = 00068F   Size = 00000A
+vt03.lib(gt.o):
+    STARTUP           Offs = 000699   Size = 00000A
+vt03.lib(icmp.o):
+    STARTUP           Offs = 0006A3   Size = 00002C
+vt03.lib(incax1.o):
+    STARTUP           Offs = 0006CF   Size = 000007
+vt03.lib(incax7.o):
+    STARTUP           Offs = 0006D6   Size = 000005
+vt03.lib(incax8.o):
+    STARTUP           Offs = 0006DB   Size = 000005
+vt03.lib(incaxy.o):
+    STARTUP           Offs = 0006E0   Size = 00000B
+vt03.lib(incsp2.o):
+    STARTUP           Offs = 0006EB   Size = 000016
+vt03.lib(incsp7.o):
+    STARTUP           Offs = 000701   Size = 000005
+vt03.lib(ldaui.o):
+    STARTUP           Offs = 000706   Size = 000009
+vt03.lib(ldaxi.o):
+    STARTUP           Offs = 00070F   Size = 00000D
+vt03.lib(ldaxsp.o):
+    STARTUP           Offs = 00071C   Size = 000009
+vt03.lib(leasp.o):
+    STARTUP           Offs = 000725   Size = 000009
+vt03.lib(leave.o):
+    STARTUP           Offs = 00072E   Size = 00001D
+vt03.lib(lpush.o):
+    STARTUP           Offs = 00074B   Size = 00001E
+vt03.lib(lt.o):
+    STARTUP           Offs = 000769   Size = 00000A
+vt03.lib(makebool.o):
+    STARTUP           Offs = 000773   Size = 000031
+vt03.lib(push1.o):
+    STARTUP           Offs = 0007A4   Size = 000005
+vt03.lib(pushax.o):
+    STARTUP           Offs = 0007A9   Size = 00001A
+vt03.lib(staspidx.o):
+    STARTUP           Offs = 0007C3   Size = 000016
+vt03.lib(staxsp.o):
+    STARTUP           Offs = 0007D9   Size = 00000B
+vt03.lib(subeqsp.o):
+    STARTUP           Offs = 0007E4   Size = 000015
+vt03.lib(subysp.o):
+    STARTUP           Offs = 0007F9   Size = 00000D
+vt03.lib(ltoa.o):
+    CODE              Offs = 000DF9   Size = 0000AF
+    RODATA            Offs = 000700   Size = 00000C
+vt03.lib(memcpy.o):
+    CODE              Offs = 000EA8   Size = 00003A
+vt03.lib(sprintf.o):
+    CODE              Offs = 000EE2   Size = 00002B
+    BSS               Offs = 000025   Size = 000001
+vt03.lib(strlen.o):
+    CODE              Offs = 000F0D   Size = 000016
+vt03.lib(strlower.o):
+    CODE              Offs = 000F23   Size = 000028
+vt03.lib(vsprintf.o):
+    CODE              Offs = 000F4B   Size = 000076
+    DATA              Offs = 000007   Size = 000008
+vt03.lib(zerobss.o):
+    CODE              Offs = 000FC1   Size = 000023
+vt03.lib(_hextab.o):
+    RODATA            Offs = 00070C   Size = 000010
+vt03.lib(_printf.o):
+    CODE              Offs = 000FE4   Size = 0003A1
+    BSS               Offs = 000026   Size = 00002B
+    DATA              Offs = 00000F   Size = 000003
+vt03.lib(setvectors.o):
+    STARTUP           Offs = 000806   Size = 00001B
+vt03.lib(closescreendisplay.o):
+    STARTUP           Offs = 000821   Size = 000007
+vt03.lib(openscreendisplay.o):
+    STARTUP           Offs = 000828   Size = 000007
+vt03.lib(disablenmi.o):
+    STARTUP           Offs = 00082F   Size = 00000A
+vt03.lib(enablenmi.o):
+    STARTUP           Offs = 000839   Size = 00000A
+vt03.lib(waitpatternupdate.o):
+    STARTUP           Offs = 000843   Size = 000007
+vt03.lib(patternupdate.o):
+    STARTUP           Offs = 00084A   Size = 000007
+vt03.lib(paletteupdate.o):
+    STARTUP           Offs = 000851   Size = 000007
+vt03.lib(clearoalettebuffer.o):
+    STARTUP           Offs = 000858   Size = 000012
+vt03.lib(initscreen.o):
+    STARTUP           Offs = 00086A   Size = 000112
+vt03.lib(clearspritebuffer.o):
+    STARTUP           Offs = 00097C   Size = 00000B
+vt03.lib(waitsync.o):
+    CODE              Offs = 001385   Size = 000018
+vt03.lib(standardnmi.o):
+    STARTUP           Offs = 000987   Size = 0000BE
+vt03.lib(nmidmascreen.o):
+    STARTUP           Offs = 000A45   Size = 000038
+vt03.lib(nmidmacalclength.o):
+    STARTUP           Offs = 000A7D   Size = 00004F
+vt03.lib(nmidmapalette.o):
+    STARTUP           Offs = 000ACC   Size = 00004F
+vt03.lib(standardirq.o):
+    STARTUP           Offs = 000B1B   Size = 00008D
+vt03.lib(initvt03system.o):
+    STARTUP           Offs = 000BA8   Size = 00000A
+vt03.lib(installvt03.o):
+    STARTUP           Offs = 000BB2   Size = 00002F
+vt03.lib(joystick.o):
+    CODE              Offs = 00139D   Size = 00003F
+vt03.lib(ctype.o):
+    RODATA            Offs = 00071C   Size = 000100
+vt03.lib(music.o):
+    CODE              Offs = 0013DC   Size = 000EF4
+    BSS               Offs = 000051   Size = 00007D
+    ZEROPAGE          Offs = 000050   Size = 000011
+vt03.lib(SquareEffect00.o):
+    CODE              Offs = 0022D0   Size = 000027
+vt03.lib(SquareEffect01.o):
+    CODE              Offs = 0022F7   Size = 000030
+vt03.lib(SquareEffect02.o):
+    CODE              Offs = 002327   Size = 000011
+vt03.lib(SquareEffect03.o):
+    CODE              Offs = 002338   Size = 000013
+vt03.lib(TriangleEffect00.o):
+    CODE              Offs = 00234B   Size = 000007
+vt03.lib(TriangleEffect01.o):
+    CODE              Offs = 002352   Size = 00000C
+vt03.lib(TriangleEffect02.o):
+    CODE              Offs = 00235E   Size = 000004
+vt03.lib(NoiseEffect00.o):
+    CODE              Offs = 002362   Size = 000026
+vt03.lib(NoiseEffect01.o):
+    CODE              Offs = 002388   Size = 000019
+vt03.lib(NoiseEffect02.o):
+    CODE              Offs = 0023A1   Size = 000019
+vt03.lib(NoiseEffect03.o):
+    CODE              Offs = 0023BA   Size = 000019
+vt03.lib(NoiseEffect04.o):
+    CODE              Offs = 0023D3   Size = 000019
+vt03.lib(Effect41.o):
+    CODE              Offs = 0023EC   Size = 000019
+vt03.lib(Effect42.o):
+    CODE              Offs = 002405   Size = 000025
+vt03.lib(Effect43.o):
+    CODE              Offs = 00242A   Size = 00001E
+vt03.lib(Effect44.o):
+    CODE              Offs = 002448   Size = 000056
+vt03.lib(Effect45.o):
+    CODE              Offs = 00249E   Size = 00002B
+vt03.lib(Effect46.o):
+    CODE              Offs = 0024C9   Size = 000034
+vt03.lib(Effect47.o):
+    CODE              Offs = 0024FD   Size = 000030
+vt03.lib(Effect48.o):
+    CODE              Offs = 00252D   Size = 000021
+vt03.lib(Effect49.o):
+    CODE              Offs = 00254E   Size = 00002C
+vt03.lib(nmimultidma.o):
+    ZEROPAGE          Offs = 000061   Size = 00000A
+    STARTUP           Offs = 000BE1   Size = 00009A
+
+
+Segment list:
+-------------
+Name                  Start   End     Size
+--------------------------------------------
+ZEROPAGE              000002  00006C  00006B
+DATA                  000400  000411  000012
+BSS                   000412  0004DF  0000CE
+DEFINE                00A000  00B047  001048
+RODATA                00C000  00C81B  00081C
+CODE                  00C81C  00ED95  00257A
+STARTUP               00EDA8  00FA22  000C7B
+VECTORS               00FFFA  00FFFF  000006
+
+
+Exports list:
+-------------
+DMADestinationAddress     000036 RLZ    DMALength                 000038 RLZ    
+DMAScreenBank             000033 RLZ    DMASourceAddress          000034 RLZ    
+IRQCount                  00002E RLZ    IRQLineCount              00002C RLZ    
+IRQScanLine               000031 RLZ    IRQScanLineBank           00002F RLZ    
+InitScreenPoint           00003A RLZ    Joy1_Button               000026 RLZ    
+Joy1_Press                000028 RLZ    Joy1_PressFlag            000027 RLZ    
+Joy2_Button               000029 RLZ    Joy2_Press                00002B RLZ    
+Joy2_PressFlag            00002A RLZ    Music_Flag2               000465 RLA    
+NMIControl                000023 RLZ    NMICount                  000025 RLZ    
+NMIDMACalcLength          00F825 RLA    NMIDMAPalette             00F874 RLA    
+NMIDMAScreen              00F7ED RLA    NMIMultiDMA               00F989 RLA    
+NMITemp                   000024 RLZ    ProgramBank0Temp          000020 RLZ    
+ProgramBank1Temp          000021 RLZ    ProgramBank2Temp          000022 RLZ    
+ScanlineOffest            000030 RLZ    ScreenPositionX           00001E RLZ    
+ScreenPositionY           00001F RLZ    SystemControlTemp         00001C RLZ    
+Temp0                     00003F RLZ    Temp1                     000040 RLZ    
+Temp2                     000041 RLZ    VideoControlTemp          00001D RLZ    
+_ClearPaletteBuffer       00F600 RLA    _ClearSprBuffer           00F724 RLA    
+_CloseScreenDisplay       00F5C9 RLA    _DisableNMI               00F5D7 RLA    
+_Effect41                 00EC08 RLA    _Effect42                 00EC21 RLA    
+_Effect43                 00EC46 RLA    _Effect44                 00EC64 RLA    
+_Effect45                 00ECBA RLA    _Effect46                 00ECE5 RLA    
+_Effect47                 00ED19 RLA    _Effect48                 00ED49 RLA    
+_Effect49                 00ED6A RLA    _EnableNMI                00F5E1 RLA    
+_GamesDefine              00B000 RLA    _InitLCD                  00D115 RLA    
+_InitMenuSprite           00D24F RLA    _InitPalette              00D201 RLA    
+_InitScreen               00F612 RLA    _InitSystem               00D19A RLA    
+_InitSystemTestSprite     00D275 RLA    _InitVT03System           00F950 RLA    
+_InstallVT03              00F95A RLA    _JoyStick                 00DBC4 RLA    
+_MusicEffect              00DD7B RLA    _MusicInitial             00DBF8 RLA    
+_MusicLoop                00D10F RLA    _MusicNMIProcess          00DDDB RLA    
+_MusicPlay                00DD07 RLA    _MusicSetup               00DC46 RLA    
+_Music_NoiseEffect00      00EB7E RLA    _Music_NoiseEffect01      00EBA4 RLA    
+_Music_NoiseEffect02      00EBBD RLA    _Music_NoiseEffect03      00EBD6 RLA    
+_Music_NoiseEffect04      00EBEF RLA    _Music_SquareEffect00     00EAEC RLA    
+_Music_SquareEffect01     00EB13 RLA    _Music_SquareEffect02     00EB43 RLA    
+_Music_SquareEffect03     00EB54 RLA    _Music_TriangleEffect00   00EB67 RLA    
+_Music_TriangleEffect01   00EB6E RLA    _Music_TriangleEffect02   00EB7A RLA    
+_OpenScreenDisplay        00F5D0 RLA    _Outputxy                 00D2CF RLA    
+_PICTable                 00C100 RLA    _PaletteUpdate            00F5F9 RLA    
+_PatternUpdate            00F5F2 RLA    _ReadJoystick1            00D3D2 RLA    
+_ReadJoystick2            00D3E6 RLA    _RunGame                  00D3EB RLA    
+_SetVectors               00F5AE RLA    _StandardIRQ              00F8C3 RLA    
+_StandardNMI              00F72F RLA    _UserNMI                  00EE6E RLA    
+_WaitPatternUpdate        00F5EB RLA    _WaitSync                 00DBA1 RLA    
+__BSS_RUN__               000412 RLA    __BSS_SIZE__              0000CE REA    
+__CONSTRUCTOR_COUNT__     000000 REA    __CONSTRUCTOR_TABLE__     00C81C RLA    
+__DATA_LOAD__             00ED96 RLA    __DATA_RUN__              000400 RLA    
+__DATA_SIZE__             000012 REA    __DESTRUCTOR_COUNT__      000000 REA    
+__DESTRUCTOR_TABLE__      00C81C RLA    __SRAM_SIZE__             000200 REA    
+__SRAM_START__            000600 RLA    __ctype                   00C71C RLA    
+__hextab                  00C70C RLA    __printf                  00D8F3 RLA    
+_irq                      00F323 RLA    _irq0                     00F322 RLA    
+_ltoa                     00D631 RLA    _main                     00CD79 RLA    
+_memcpy                   00D6C4 RLA    _midi02                   00D4DE RLA    
+_nmi                      00EE75 RLA    _sprintf                  00D6FE RLA    
+_strlen                   00D729 RLA    _strlower                 00D73F RLA    
+_ultoa                    00D688 RLA    _vsprintf                 00D79E RLA    
+addeqysp                  00F34D RLA    addr0                     00003B RLZ    
+addr1                     00003D RLZ    addysp                    00F35D RLA    
+aslax1                    00F36A RLA    aslax3                    00F372 RLA    
+axlong                    00F387 RLA    axulong                   00F380 RLA    
+booleq                    00F521 RLA    boolge                    00F531 RLA    
+boolgt                    00F52F RLA    boollt                    00F529 RLA    
+boolne                    00F51B RLA    callmain                  00F392 RLA    
+decax1                    00F3E1 RLA    decsp2                    00F3E8 RLA    
+decsp3                    00F3F5 RLA    decsp4                    00F402 RLA    
+decsp6                    00F40F RLA    decsp7                    00F41C RLA    
+donelib                   00F3B2 RLA    enter                     00F429 RLA    
+incax1                    00F477 RLA    incax7                    00F47E RLA    
+incax8                    00F483 RLA    incaxy                    00F48A RLA    
+incsp2                    00F49B RLA    incsp7                    00F4A9 RLA    
+initlib                   00F3A9 RLA    ldauidx                   00F4AE RLA    
+ldaxidx                   00F4B9 RLA    ldaxysp                   00F4C6 RLA    
+leaasp                    00F4CD RLA    leavey                    00F4E0 RLA    
+popax                     00F493 RLA    ptr1                      00000A RLZ    
+ptr2                      00000C RLZ    ptr3                      00000E RLZ    
+push1                     00F54C RLA    pusha0                    00F553 RLA    
+pushax                    00F555 RLA    pusheax                   00F4F9 RLA    
+regbank                   000016 RLZ    regsave                   000006 RLZ    
+sp                        000002 RLZ    sreg                      000004 RLZ    
+staspidx                  00F56B RLA    staxysp                   00F583 RLA    
+subeqysp                  00F58E RLA    subysp                    00F5A1 RLA    
+tmp1                      000012 RLZ    tosaddax                  00F333 RLA    
+tosgea0                   00F439 RLA    tosgeax                   00F43B RLA    
+tosgtax                   00F445 RLA    tosicmp                   00F44B RLA    
+toslta0                   00F513 RLA    tosltax                   00F515 RLA    
+zerobss                   00D7DD RLA    
+
+
+Imports list:
+-------------
+DMADestinationAddress (vt03.o):
+    nmidmacalclength.o        nmidmacalclength.s(3)
+    nmidmascreen.o            nmidmascreen.s(3)
+    initscreen.o              initscreen.s(5)
+DMALength (vt03.o):
+    nmidmacalclength.o        nmidmacalclength.s(3)
+    nmidmascreen.o            nmidmascreen.s(3)
+    initscreen.o              initscreen.s(5)
+DMAScreenBank (vt03.o):
+    nmidmascreen.o            nmidmascreen.s(3)
+    initscreen.o              initscreen.s(5)
+DMASourceAddress (vt03.o):
+    nmidmacalclength.o        nmidmacalclength.s(3)
+    nmidmascreen.o            nmidmascreen.s(3)
+    initscreen.o              initscreen.s(5)
+IRQCount (vt03.o):
+    standardirq.o             standardirq.s(6)
+    standardnmi.o             standardnmi.s(7)
+IRQLineCount (vt03.o):
+    standardirq.o             standardirq.s(7)
+    standardnmi.o             standardnmi.s(9)
+IRQScanLine (vt03.o):
+    standardirq.o             standardirq.s(7)
+    standardnmi.o             standardnmi.s(9)
+    initscreen.o              initscreen.s(4)
+IRQScanLineBank (vt03.o):
+    standardirq.o             standardirq.s(7)
+    standardnmi.o             standardnmi.s(9)
+    initscreen.o              initscreen.s(4)
+InitScreenPoint (vt03.o):
+    initscreen.o              initscreen.s(6)
+Joy1_Button (vt03.o):
+    joystick.o                joystick.s(4)
+    proc.o                    proc.s(21)
+Joy1_Press (vt03.o):
+    joystick.o                joystick.s(4)
+    proc.o                    proc.s(20)
+Joy1_PressFlag (vt03.o):
+    joystick.o                joystick.s(4)
+    proc.o                    proc.s(19)
+Joy2_Button (vt03.o):
+    joystick.o                joystick.s(4)
+Joy2_Press (vt03.o):
+    joystick.o                joystick.s(4)
+Joy2_PressFlag (vt03.o):
+    joystick.o                joystick.s(4)
+Music_Flag2 (music.o):
+    proc.o                    proc.s(62)
+NMIControl (vt03.o):
+    nmimultidma.o             nmimultidma.s(3)
+    nmidmapalette.o           nmidmapalette.s(3)
+    nmidmacalclength.o        nmidmacalclength.s(4)
+    standardnmi.o             standardnmi.s(8)
+    paletteupdate.o           paletteupdate.s(3)
+    patternupdate.o           patternupdate.s(3)
+    waitpatternupdate.o       waitpatternupdate.s(3)
+    proc.o                    vt03.inc(278)
+NMICount (vt03.o):
+    standardnmi.o             standardnmi.s(7)
+    waitsync.o                waitsync.s(3)
+    proc.o                    proc.s(24)
+NMIDMACalcLength (nmidmacalclength.o):
+    standardnmi.o             standardnmi.s(3)
+NMIDMAPalette (nmidmapalette.o):
+    standardnmi.o             standardnmi.s(3)
+NMIDMAScreen (nmidmascreen.o):
+    standardnmi.o             standardnmi.s(3)
+NMIMultiDMA (nmimultidma.o):
+    standardnmi.o             standardnmi.s(4)
+NMITemp (vt03.o):
+    nmidmacalclength.o        nmidmacalclength.s(4)
+    nmidmascreen.o            nmidmascreen.s(3)
+ProgramBank0Temp (vt03.o):
+    installvt03.o             installvt03.s(6)
+    standardirq.o             standardirq.s(8)
+    standardnmi.o             standardnmi.s(8)
+    initscreen.o              initscreen.s(3)
+ProgramBank1Temp (vt03.o):
+    installvt03.o             installvt03.s(6)
+ProgramBank2Temp (vt03.o):
+    installvt03.o             installvt03.s(6)
+ScanlineOffest (vt03.o):
+    standardirq.o             standardirq.s(7)
+    standardnmi.o             standardnmi.s(9)
+ScreenPositionX (vt03.o):
+    installvt03.o             installvt03.s(5)
+    standardnmi.o             standardnmi.s(10)
+    proc.o                    vt03.inc(275)
+ScreenPositionY (vt03.o):
+    installvt03.o             installvt03.s(5)
+    standardirq.o             vt03.inc(275)
+    standardnmi.o             standardnmi.s(10)
+    proc.o                    vt03.inc(275)
+SystemControlTemp (vt03.o):
+    installvt03.o             installvt03.s(5)
+    standardnmi.o             standardnmi.s(11)
+    waitsync.o                vt03.inc(275)
+    enablenmi.o               enablenmi.s(3)
+    disablenmi.o              disablenmi.s(3)
+    proc.o                    vt03.inc(275)
+Temp0 (vt03.o):
+    initscreen.o              initscreen.s(7)
+    proc.o                    vt03.inc(282)
+Temp1 (vt03.o):
+    initscreen.o              initscreen.s(7)
+    proc.o                    vt03.inc(282)
+Temp2 (vt03.o):
+    initscreen.o              initscreen.s(7)
+    proc.o                    vt03.inc(282)
+VideoControlTemp (vt03.o):
+    installvt03.o             installvt03.s(5)
+    standardnmi.o             standardnmi.s(11)
+    openscreendisplay.o       openscreendisplay.s(3)
+    closescreendisplay.o      closescreendisplay.s(3)
+    proc.o                    vt03.inc(275)
+_ClearPaletteBuffer (clearoalettebuffer.o):
+    demo1.o                   demo1.s(17)
+_ClearSprBuffer (clearspritebuffer.o):
+    demo1.o                   demo1.s(15)
+_CloseScreenDisplay (closescreendisplay.o):
+    demo1.o                   demo1.s(23)
+_DisableNMI (disablenmi.o):
+    demo1.o                   demo1.s(21)
+_Effect41 (Effect41.o):
+    demo1.o                   demo1.s(43)
+_Effect42 (Effect42.o):
+    demo1.o                   demo1.s(44)
+_Effect43 (Effect43.o):
+    demo1.o                   demo1.s(45)
+_Effect44 (Effect44.o):
+    demo1.o                   demo1.s(46)
+_Effect45 (Effect45.o):
+    demo1.o                   demo1.s(47)
+_Effect46 (Effect46.o):
+    demo1.o                   demo1.s(48)
+_Effect47 (Effect47.o):
+    demo1.o                   demo1.s(49)
+_Effect48 (Effect48.o):
+    demo1.o                   demo1.s(50)
+_Effect49 (Effect49.o):
+    demo1.o                   demo1.s(51)
+_EnableNMI (enablenmi.o):
+    demo1.o                   demo1.s(20)
+_GamesDefine (proc.o):
+    demo1.o                   demo1.s(69)
+_InitLCD (proc.o):
+    demo1.o                   demo1.s(61)
+_InitMenuSprite (proc.o):
+    demo1.o                   demo1.s(65)
+_InitPalette (proc.o):
+    demo1.o                   demo1.s(55)
+_InitScreen (initscreen.o):
+    demo1.o                   demo1.s(16)
+_InitSystem (proc.o):
+    demo1.o                   demo1.s(54)
+_InitSystemTestSprite (proc.o):
+    demo1.o                   demo1.s(62)
+_InitVT03System (initvt03system.o):
+    demo1.o                   demo1.s(13)
+_InstallVT03 (installvt03.o):
+    demo1.o                   demo1.s(12)
+_JoyStick (joystick.o):
+    proc.o                    proc.s(23)
+_MusicEffect (music.o):
+    demo1.o                   demo1.s(30)
+_MusicInitial (music.o):
+    demo1.o                   demo1.s(27)
+_MusicLoop (proc.o):
+    demo1.o                   demo1.s(76)
+_MusicNMIProcess (music.o):
+    proc.o                    proc.s(25)
+_MusicPlay (music.o):
+    demo1.o                   demo1.s(29)
+_MusicSetup (music.o):
+    demo1.o                   demo1.s(28)
+_Music_NoiseEffect00 (NoiseEffect00.o):
+    demo1.o                   demo1.s(38)
+_Music_NoiseEffect01 (NoiseEffect01.o):
+    demo1.o                   demo1.s(39)
+_Music_NoiseEffect02 (NoiseEffect02.o):
+    demo1.o                   demo1.s(40)
+_Music_NoiseEffect03 (NoiseEffect03.o):
+    demo1.o                   demo1.s(41)
+_Music_NoiseEffect04 (NoiseEffect04.o):
+    demo1.o                   demo1.s(42)
+_Music_SquareEffect00 (SquareEffect00.o):
+    demo1.o                   demo1.s(31)
+_Music_SquareEffect01 (SquareEffect01.o):
+    demo1.o                   demo1.s(32)
+_Music_SquareEffect02 (SquareEffect02.o):
+    demo1.o                   demo1.s(33)
+_Music_SquareEffect03 (SquareEffect03.o):
+    demo1.o                   demo1.s(34)
+_Music_TriangleEffect00 (TriangleEffect00.o):
+    demo1.o                   demo1.s(35)
+_Music_TriangleEffect01 (TriangleEffect01.o):
+    demo1.o                   demo1.s(36)
+_Music_TriangleEffect02 (TriangleEffect02.o):
+    demo1.o                   demo1.s(37)
+_OpenScreenDisplay (openscreendisplay.o):
+    demo1.o                   demo1.s(22)
+_Outputxy (proc.o):
+    demo1.o                   demo1.s(56)
+_PICTable (proc.o):
+    demo1.o                   demo1.s(75)
+_PaletteUpdate (paletteupdate.o):
+    proc.o                    proc.s(13)
+_PatternUpdate (patternupdate.o):
+    demo1.o                   demo1.s(18)
+_ReadJoystick1 (proc.o):
+    demo1.o                   demo1.s(58)
+_ReadJoystick2 (proc.o):
+    demo1.o                   demo1.s(64)
+_RunGame (proc.o):
+    demo1.o                   demo1.s(59)
+_SetVectors (setvectors.o):
+    demo1.o                   demo1.s(24)
+_StandardIRQ (standardirq.o):
+    demo1.o                   demo1.s(26)
+_StandardNMI (standardnmi.o):
+    demo1.o                   demo1.s(25)
+_UserNMI (proc.o):
+    standardnmi.o             standardnmi.s(5)
+_WaitPatternUpdate (waitpatternupdate.o):
+    demo1.o                   demo1.s(19)
+_WaitSync (waitsync.o):
+    demo1.o                   demo1.s(14)
+__BSS_RUN__ ([linker generated]):
+    zerobss.o                 zerobss.s(8)
+__BSS_SIZE__ ([linker generated]):
+    zerobss.o                 zerobss.s(8)
+__CONSTRUCTOR_COUNT__ ([linker generated]):
+    condes.o                  condes.s(18)
+__CONSTRUCTOR_TABLE__ ([linker generated]):
+    condes.o                  condes.s(18)
+__DATA_LOAD__ ([linker generated]):
+    vt03.o                    crt0.s(20)
+__DATA_RUN__ ([linker generated]):
+    vt03.o                    crt0.s(20)
+__DATA_SIZE__ ([linker generated]):
+    vt03.o                    crt0.s(20)
+__DESTRUCTOR_COUNT__ ([linker generated]):
+    condes.o                  condes.s(19)
+__DESTRUCTOR_TABLE__ ([linker generated]):
+    condes.o                  condes.s(19)
+__SRAM_SIZE__ ([linker generated]):
+    vt03.o                    crt0.s(19)
+__SRAM_START__ ([linker generated]):
+    vt03.o                    crt0.s(19)
+__ctype (ctype.o):
+    strlower.o                strlower.s(12)
+__hextab (_hextab.o):
+    ltoa.o                    ltoa.s(10)
+__printf (_printf.o):
+    vsprintf.o                vsprintf.s(9)
+_irq (proc.o):
+    demo1.o                   demo1.s(52)
+_irq0 (proc.o):
+    standardirq.o             standardirq.s(3)
+_ltoa (ltoa.o):
+    _printf.o                 _printf.s(11)
+_main (demo1.o):
+    callmain.o                callmain.s(11)
+_memcpy (memcpy.o):
+    vsprintf.o                vsprintf.s(9)
+_midi02 (proc.o):
+    demo1.o                   demo1.s(68)
+_nmi (proc.o):
+    demo1.o                   demo1.s(53)
+_sprintf (sprintf.o):
+    demo1.o                   demo1.s(66)
+_strlen (strlen.o):
+    _printf.o                 _printf.s(12)
+_strlower (strlower.o):
+    _printf.o                 _printf.s(12)
+_ultoa (ltoa.o):
+    _printf.o                 _printf.s(11)
+_vsprintf (vsprintf.o):
+    sprintf.o                 sprintf.s(8)
+addeqysp (addeqsp.o):
+    demo1.o                   demo1.s(516)
+    demo1.o                   demo1.s(943)
+addr0 (vt03.o):
+    initscreen.o              initscreen.s(7)
+    proc.o                    vt03.inc(282)
+addr1 (vt03.o):
+    initscreen.o              initscreen.s(7)
+    proc.o                    vt03.inc(282)
+addysp (addysp.o):
+    sprintf.o                 sprintf.s(8)
+    leave.o                   leave.s(13)
+    incsp7.o                  incsp7.s(8)
+    demo1.o                   demo1.s(372)
+aslax1 (aslax1.o):
+    demo1.o                   demo1.s(160)
+    demo1.o                   demo1.s(395)
+    demo1.o                   demo1.s(1051)
+aslax3 (aslax3.o):
+    demo1.o                   demo1.s(894)
+axlong (axlong.o):
+    _printf.o                 _printf.s(9)
+axulong (axlong.o):
+    _printf.o                 _printf.s(9)
+booleq (makebool.o):
+    demo1.o                   demo1.s(258)
+    demo1.o                   demo1.s(807)
+boolge (makebool.o):
+    ge.o                      ge.s(8)
+boolgt (makebool.o):
+    gt.o                      gt.s(8)
+boollt (makebool.o):
+    lt.o                      lt.s(8)
+boolne (makebool.o):
+    demo1.o                   demo1.s(348)
+    demo1.o                   demo1.s(487)
+callmain (callmain.o):
+    vt03.o                    crt0.s(13)
+decax1 (decax1.o):
+    demo1.o                   demo1.s(858)
+decsp2 (decsp2.o):
+    demo1.o                   demo1.s(388)
+decsp3 (decsp3.o):
+    demo1.o                   demo1.s(440)
+decsp4 (decsp4.o):
+    lpush.o                   lpush.s(11)
+    sprintf.o                 sprintf.s(8)
+decsp6 (decsp6.o):
+    _printf.o                 _printf.s(9)
+decsp7 (decsp7.o):
+    demo1.o                   demo1.s(724)
+donelib (condes.o):
+    vt03.o                    crt0.s(13)
+enter (enter.o):
+    demo1.o                   demo1.s(387)
+    demo1.o                   demo1.s(439)
+incax1 (incax1.o):
+    demo1.o                   demo1.s(201)
+    demo1.o                   demo1.s(414)
+    demo1.o                   demo1.s(911)
+incax7 (incax7.o):
+    demo1.o                   demo1.s(325)
+incax8 (incax8.o):
+    demo1.o                   demo1.s(178)
+incaxy (incaxy.o):
+    incax8.o                  incax8.s(8)
+    incax7.o                  incax7.s(8)
+    demo1.o                   demo1.s(896)
+incsp2 (incsp2.o):
+    initvt03system.o          initvt03system.s(3)
+    initscreen.o              initscreen.s(9)
+    setvectors.o              setvectors.s(3)
+    staspidx.o                staspidx.s(8)
+    proc.o                    proc.s(12)
+incsp7 (incsp7.o):
+    demo1.o                   demo1.s(1068)
+initlib (condes.o):
+    vt03.o                    crt0.s(13)
+ldauidx (ldaui.o):
+    demo1.o                   demo1.s(256)
+    demo1.o                   demo1.s(485)
+ldaxidx (ldaxi.o):
+    demo1.o                   demo1.s(173)
+    demo1.o                   demo1.s(1060)
+ldaxysp (ldaxsp.o):
+    demo1.o                   demo1.s(137)
+    demo1.o                   demo1.s(394)
+    demo1.o                   demo1.s(460)
+    demo1.o                   demo1.s(812)
+leaasp (leasp.o):
+    demo1.o                   demo1.s(190)
+leavey (leave.o):
+    demo1.o                   demo1.s(424)
+    demo1.o                   demo1.s(709)
+popax (incsp2.o):
+    memcpy.o                  memcpy.s(12)
+    ltoa.o                    ltoa.s(9)
+    music.o                   music.s(15)
+    setvectors.o              setvectors.s(3)
+    _printf.o                 _printf.s(9)
+    vsprintf.o                vsprintf.s(8)
+    proc.o                    proc.s(12)
+ptr1 (vt03.o):
+    strlower.o                strlower.s(13)
+    strlen.o                  strlen.s(8)
+    memcpy.o                  memcpy.s(13)
+    ltoa.o                    ltoa.s(11)
+    _printf.o                 _printf.s(13)
+    zerobss.o                 zerobss.s(9)
+    vsprintf.o                vsprintf.s(10)
+    sprintf.o                 sprintf.s(9)
+    staspidx.o                staspidx.s(9)
+    ldaxi.o                   ldaxi.s(8)
+    ldaui.o                   ldaui.s(8)
+    demo1.o                   demo1.s(10)
+ptr2 (vt03.o):
+    strlower.o                strlower.s(13)
+    memcpy.o                  memcpy.s(13)
+    ltoa.o                    ltoa.s(11)
+    _printf.o                 _printf.s(13)
+ptr3 (vt03.o):
+    memcpy.o                  memcpy.s(13)
+    ltoa.o                    ltoa.s(11)
+push1 (push1.o):
+    _printf.o                 _printf.s(9)
+pusha0 (pushax.o):
+    push1.o                   push1.s(8)
+pushax (pushax.o):
+    _printf.o                 _printf.s(9)
+    callmain.o                callmain.s(11)
+    demo1.o                   demo1.s(138)
+    demo1.o                   demo1.s(447)
+    demo1.o                   demo1.s(731)
+pusheax (lpush.o):
+    _printf.o                 _printf.s(9)
+regbank (vt03.o):
+    _printf.o                 _printf.s(13)
+regsave (vt03.o):
+    demo1.o                   demo1.s(10)
+sp (vt03.o):
+    lpush.o                   lpush.s(12)
+    decsp6.o                  decsp6.s(8)
+    decsp4.o                  decsp4.s(8)
+    _printf.o                 _printf.s(13)
+    vsprintf.o                vsprintf.s(10)
+    sprintf.o                 sprintf.s(9)
+    subysp.o                  subysp.s(9)
+    subeqsp.o                 subeqsp.s(8)
+    staxsp.o                  staxsp.s(8)
+    staspidx.o                staspidx.s(9)
+    pushax.o                  pushax.s(8)
+    leave.o                   leave.s(14)
+    leasp.o                   leasp.s(8)
+    ldaxsp.o                  ldaxsp.s(8)
+    incsp2.o                  incsp2.s(8)
+    icmp.o                    icmp.s(9)
+    enter.o                   enter.s(8)
+    decsp7.o                  decsp7.s(8)
+    decsp3.o                  decsp3.s(8)
+    decsp2.o                  decsp2.s(8)
+    addysp.o                  addysp.s(8)
+    addeqsp.o                 addeqsp.s(8)
+    add.o                     add.s(11)
+    demo1.o                   demo1.s(10)
+sreg (vt03.o):
+    ltoa.o                    ltoa.s(11)
+    lpush.o                   lpush.s(12)
+    axlong.o                  axlong.s(8)
+    _printf.o                 _printf.s(13)
+    icmp.o                    icmp.s(9)
+staspidx (staspidx.o):
+    demo1.o                   demo1.s(293)
+    demo1.o                   demo1.s(477)
+staxysp (staxsp.o):
+    demo1.o                   demo1.s(135)
+    demo1.o                   demo1.s(392)
+    demo1.o                   demo1.s(458)
+    demo1.o                   demo1.s(755)
+subeqysp (subeqsp.o):
+    demo1.o                   demo1.s(876)
+subysp (subysp.o):
+    demo1.o                   demo1.s(131)
+tmp1 (vt03.o):
+    memcpy.o                  memcpy.s(13)
+    ltoa.o                    ltoa.s(11)
+    _printf.o                 _printf.s(13)
+    staspidx.o                staspidx.s(9)
+    incaxy.o                  incaxy.s(8)
+    aslax3.o                  aslax3.s(8)
+    aslax1.o                  aslax1.s(8)
+    demo1.o                   demo1.s(10)
+tosaddax (add.o):
+    demo1.o                   demo1.s(148)
+    demo1.o                   demo1.s(472)
+    demo1.o                   demo1.s(910)
+tosgea0 (ge.o):
+    demo1.o                   demo1.s(187)
+    demo1.o                   demo1.s(852)
+tosgeax (ge.o):
+    demo1.o                   demo1.s(523)
+tosgtax (gt.o):
+    demo1.o                   demo1.s(1010)
+tosicmp (icmp.o):
+    lt.o                      lt.s(8)
+    gt.o                      gt.s(8)
+    ge.o                      ge.s(8)
+toslta0 (lt.o):
+    demo1.o                   demo1.s(140)
+    demo1.o                   demo1.s(903)
+tosltax (lt.o):
+    demo1.o                   demo1.s(152)
+    demo1.o                   demo1.s(464)
+    demo1.o                   demo1.s(915)
+zerobss (zerobss.o):
+    vt03.o                    crt0.s(14)
+

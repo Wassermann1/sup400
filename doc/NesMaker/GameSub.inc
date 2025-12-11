@@ -1,0 +1,2 @@
+GameSub:
+	rts
