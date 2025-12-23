@@ -1,0 +1,21 @@
+Modules list:
+-------------
+display_dump.o:
+    CODE              Offs = 000000   Size = 000A05
+
+
+Segment list:
+-------------
+Name                  Start   End     Size
+--------------------------------------------
+CODE                  00B5F0  00BFF4  000A05
+
+
+Exports list:
+-------------
+
+
+
+Imports list:
+-------------
+

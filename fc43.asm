@@ -29,7 +29,7 @@ RTS
 
 .proc sub_FCB2 
 LDX     #0
-LDA     #MENU_BUFFER
+LDA     #$E
 loc_FCB6:
 STA     $407,X
 INX

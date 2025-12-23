@@ -1,0 +1,21 @@
+Modules list:
+-------------
+display.o:
+    CODE              Offs = 000000   Size = 0000F5
+
+
+Segment list:
+-------------
+Name                  Start   End     Size
+--------------------------------------------
+CODE                  00FA30  00FB24  0000F5
+
+
+Exports list:
+-------------
+
+
+
+Imports list:
+-------------
+

@@ -1,0 +1,21 @@
+Modules list:
+-------------
+reset_handler.o:
+    CODE              Offs = 000000   Size = 0000AE
+
+
+Segment list:
+-------------
+Name                  Start   End     Size
+--------------------------------------------
+CODE                  00EDA8  00EE55  0000AE
+
+
+Exports list:
+-------------
+
+
+
+Imports list:
+-------------
+
