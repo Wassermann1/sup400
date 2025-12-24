@@ -4,7 +4,7 @@ Creating NES CPU...Done.
 Creating NES PPU...Done.
 Creating NES APU...Done.
 Loading ROM...Done
-rom.nes: #253 H 512K/0K 
+rom.nes: #253 H 1024K/0K 
 Starting emulation...
 Freeing ROM...Done
 

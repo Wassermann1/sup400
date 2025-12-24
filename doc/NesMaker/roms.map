@@ -1,5 +1,1 @@
 名称				类型		开始地址	结束地址
-Contra (USA)			PROM		0		20000
-Super Mario Bros. (Europe)		PROM		20000		28000
-Super Mario Bros. (Europe)		VROM		28000		2a000
-Contra (USA)			VROM		2a000		2a000

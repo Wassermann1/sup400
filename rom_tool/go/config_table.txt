@@ -1,0 +1,7 @@
+# Multi-cart конфигурация
+# Начало: 0x080000
+
+Chip 'n Dale Rescue Rangers (U) [!].nes: 00 20 81 02 40 41 4E 4F 00
+Darkwing Duck (U) MMC3.nes: 00 30 81 02 60 61 6E 6F 00
+Gauntlet II (Europe).nes: 00 40 81 02 80 81 8E 8F 00
+Spider-Man.nes: 00 50 81 02 A0 A1 BE BF 80

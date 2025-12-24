@@ -1,0 +1,46 @@
+Directsound initialized, 44100 Hz
+nester - NES emulator by Darren Ranalli, (c) 2000
+Creating NES CPU...Done.
+Creating NES PPU...Done.
+Creating NES APU...Done.
+Loading ROM...Done
+dump.nes: #253 H 0K/0K 
+Starting emulation...
+Freeing ROM...Done
+
+nester - NES emulator by Darren Ranalli, (c) 2000
+Creating NES CPU...Done.
+Creating NES PPU...Done.
+Creating NES APU...Done.
+Loading ROM...Done
+dump.nes: #253 H 0K/0K 
+Starting emulation...
+Freeing ROM...Done
+
+nester - NES emulator by Darren Ranalli, (c) 2000
+Creating NES CPU...Done.
+Creating NES PPU...Done.
+Creating NES APU...Done.
+Loading ROM...Done
+dump.nes: #253 H 0K/0K 
+Starting emulation...
+Freeing ROM...Done
+
+nester - NES emulator by Darren Ranalli, (c) 2000
+Creating NES CPU...Done.
+Creating NES PPU...Done.
+Creating NES APU...Done.
+Loading ROM...Done
+dump.nes: #253 H 0K/0K 
+Starting emulation...
+Freeing ROM...Done
+
+nester - NES emulator by Darren Ranalli, (c) 2000
+Creating NES CPU...Done.
+Creating NES PPU...Done.
+Creating NES APU...Done.
+Loading ROM...Done
+rom.nes: #253 H 2048K/0K 
+Starting emulation...
+Freeing ROM...Done
+

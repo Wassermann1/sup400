@@ -13,7 +13,7 @@ proc.o:
     RODATA            Offs = 000100   Size = 000600
     ZEROPAGE          Offs = 000040   Size = 000010
     STARTUP           Offs = 0000C6   Size = 0004C3
-    DEFINE            Offs = 000000   Size = 00103F
+    DEFINE            Offs = 000000   Size = 001003
 vt03.lib(add.o):
     STARTUP           Offs = 000589   Size = 00001A
 vt03.lib(addeqsp.o):
@@ -216,7 +216,7 @@ Name                  Start   End     Size
 ZEROPAGE              000002  00006C  00006B
 DATA                  000400  000411  000012
 BSS                   000412  0004DF  0000CE
-DEFINE                00A000  00B03E  00103F
+DEFINE                00A000  00B002  001003
 RODATA                00C000  00C81B  00081C
 CODE                  00C81C  00ED95  00257A
 STARTUP               00EDA8  00FA22  000C7B
