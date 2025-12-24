@@ -26,19 +26,10 @@ func BuildMulticart(games []*NESGame, startOffset uint32, romSize uint32) (*Buil
 
 	for _, game := range games {
 		gameSize := game.PRGSize + game.CHRSize
-		allocatedSize, _ := GetAllocatedSize(game)
-
-		if currentOffset+allocatedSize > romSize {
-			return nil, fmt.Errorf("недостаточно места для %s", game.Filename)
+		if currentOffset+gameSize > romSize {
+			return nil, fmt.Errorf("недостаточно места")
 		}
-
-		// Копируем данные (без заголовка)
 		copy(rom[currentOffset:], game.RawData[:gameSize])
-
-		// Паддинг
-		for i := gameSize; i < allocatedSize; i++ {
-			rom[currentOffset+i] = 0xFF
-		}
 
 		// Конфигурация
 		cfg := BuildMMC3Config(game, currentOffset)
@@ -48,7 +39,7 @@ func BuildMulticart(games []*NESGame, startOffset uint32, romSize uint32) (*Buil
 			cfg.Bytes[4], cfg.Bytes[5], cfg.Bytes[6], cfg.Bytes[7], cfg.Bytes[8])
 		configTable = append(configTable, cfgStr)
 
-		currentOffset += allocatedSize
+		currentOffset += gameSize
 	}
 
 	return &BuildResult{
@@ -60,7 +51,7 @@ func BuildMulticart(games []*NESGame, startOffset uint32, romSize uint32) (*Buil
 }
 
 func WriteResults(result *BuildResult, startOffset uint32) error {
-	if err := os.WriteFile("multicart.nes", result.ROM, 0644); err != nil {
+	if err := os.WriteFile("multicart.bin", result.ROM, 0644); err != nil {
 		return err
 	}
 

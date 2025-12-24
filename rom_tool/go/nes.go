@@ -14,6 +14,16 @@ type NESGame struct {
 	RawData  []byte // без заголовка
 }
 
+func StartsAtChunkBoundary(game *NESGame, romOffset uint32) bool {
+	const chunkSize = 256 * 1024 // 0x40000
+	return romOffset%chunkSize == 0
+}
+
+func IsSmallGame(game *NESGame) bool {
+	gameSize := game.PRGSize + game.CHRSize
+	return gameSize < 256*1024
+}
+
 func ParseNESFile(path string) (*NESGame, error) {
 	data, err := os.ReadFile(path)
 	if err != nil {
