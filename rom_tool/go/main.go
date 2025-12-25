@@ -36,6 +36,15 @@ func main() {
 		panic(err)
 	}
 
+	gameMap := make(GameConfigMap)
+	for _, entry := range result.GameConfigs {
+		gameMap[entry.Filename] = entry.Config
+	}
+
+	if err := WriteGameLists(result.ROM, gameMap); err != nil {
+		panic(err)
+	}
+
 	if err := WriteResults(result, startOffset); err != nil {
 		panic(err)
 	}

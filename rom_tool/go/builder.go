@@ -11,8 +11,14 @@ import (
 type BuildResult struct {
 	ROM         []byte
 	ConfigTable []string
+	GameConfigs []GameConfigEntry
 	TotalGames  int
 	FinalOffset uint32
+}
+
+type GameConfigEntry struct {
+	Filename string
+	Config   [9]uint8
 }
 
 func BuildMulticart(games []*NESGame, startOffset uint32, romSize uint32) (*BuildResult, error) {
@@ -23,6 +29,7 @@ func BuildMulticart(games []*NESGame, startOffset uint32, romSize uint32) (*Buil
 
 	var currentOffset = startOffset
 	var configTable []string
+	var gameConfigs []GameConfigEntry
 
 	for _, game := range games {
 		gameSize := game.PRGSize + game.CHRSize
@@ -33,6 +40,10 @@ func BuildMulticart(games []*NESGame, startOffset uint32, romSize uint32) (*Buil
 
 		// Конфигурация
 		cfg := BuildMMC3Config(game, currentOffset)
+		gameConfigs = append(gameConfigs, GameConfigEntry{
+			Filename: game.Filename,
+			Config:   cfg.Bytes,
+		})
 		cfgStr := fmt.Sprintf("%s: %02X %02X %02X %02X %02X %02X %02X %02X %02X",
 			game.Filename,
 			cfg.Bytes[0], cfg.Bytes[1], cfg.Bytes[2], cfg.Bytes[3],
@@ -45,6 +56,7 @@ func BuildMulticart(games []*NESGame, startOffset uint32, romSize uint32) (*Buil
 	return &BuildResult{
 		ROM:         rom,
 		ConfigTable: configTable,
+		GameConfigs: gameConfigs,
 		TotalGames:  len(games),
 		FinalOffset: currentOffset,
 	}, nil

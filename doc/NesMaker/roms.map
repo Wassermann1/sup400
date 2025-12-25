@@ -1,1 +1,3 @@
 名称				类型		开始地址	结束地址
+Super Mario Bros. 3 (Europe)		PROM		0		40000
+Super Mario Bros. 3 (Europe)		VROM		40000		60000

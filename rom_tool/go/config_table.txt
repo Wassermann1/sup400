@@ -4,5 +4,5 @@
 1 Chip 'n Dale Rescue Rangers.nes: 00 20 81 02 40 41 4E 4F 00
 2 Darkwing Duck.nes: 00 30 81 02 60 61 6E 6F 00
 3 Gauntlet II.nes: 00 40 81 02 80 81 8E 8F 00
-4 Spider-Man.nes: 00 50 81 02 A0 A1 AE AF 80
-5 Ninja Gaiden3.nes: 00 70 01 02 D0 D1 DE DF 00
+4 Super Mario Bros. 3 (Europe).nes: 00 50 81 02 A0 A1 BE BF 00
+5 Spider-Man.nes: 00 70 81 02 D0 D1 DE DF 80
