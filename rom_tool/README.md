@@ -6,4 +6,4 @@
   - 2018 201A - Video banks registers
   - 410B mapping logic 02 for 256 banks window rest need to find out
   - 4107-410A PRG banks
-  - A000 - mirroring options, 0 horizontal, 1 vertical, 80 - ?
+  - A000 - mirroring options, 0 horizontal, 1 vertical, 80 - MMC3 with 256kb PRG
