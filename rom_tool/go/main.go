@@ -59,25 +59,7 @@ func main() {
 	fmt.Println("Based on official VT03 documentation")
 	fmt.Println()
 
-	// Get starting offset
-	fmt.Println("Enter starting ROM offset (hex with 0x or decimal):")
-	fmt.Println("  Example: 0x100000 or 1048576")
-	scanner.Scan()
-	offsetInput := strings.TrimSpace(scanner.Text())
-
-	startOffset, err := parseAddress(offsetInput)
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error parsing starting offset: %v\n", err)
-		os.Exit(1)
-	}
-
-	// Align to 8KB boundary
-	const bankSize = 8192 // 8 KiB
-	if startOffset%bankSize != 0 {
-		fmt.Printf("⚠️  Starting offset 0x%06X not aligned to 8KB boundary. Aligning down.\n", startOffset)
-		startOffset = (startOffset / bankSize) * bankSize
-		fmt.Printf("Aligned offset: 0x%06X\n", startOffset)
-	}
+	var startOffset uint32 = 0x80000
 
 	// Get ROM size
 	fmt.Println("\nEnter ROM size in MB (2-32, default 2):")
@@ -153,8 +135,10 @@ func main() {
 	}
 
 	fmt.Printf("✅ Successfully built multicart with %d game(s)\n", result.TotalGames)
-	fmt.Printf("   Final offset: 0x%06X\n", result.FinalOffset)
-	fmt.Printf("   Used space:   %d bytes (%.1f%%)\n", result.FinalOffset-startOffset, float64(result.FinalOffset-startOffset)/float64(romSize-startOffset)*100)
+	fmt.Printf("   Final CNROM/NROM offset: 0x%06X\n", result.FinalNROMOffset)
+	fmt.Printf("   Final MMC3 offset: 0x%06X\n", result.FinalMMC3Offset)
+	fmt.Printf("   Used CNROM/NROM space:   %d bytes (%.1f%%)\n", result.FinalNROMOffset-startOffset, float64(result.FinalNROMOffset-0x80000)/float64(0x17FFFF)*100)
+	fmt.Printf("   Used MMC3 space:   %d bytes (%.1f%%)\n", result.FinalMMC3Offset-startOffset, float64(result.FinalMMC3Offset-0x200000)/float64(romSize-0x200000)*100)
 	fmt.Println("\nOutput files:")
 	fmt.Println("  multicart.bin")
 	fmt.Println("  config_table.txt")

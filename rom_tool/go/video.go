@@ -31,7 +31,11 @@ func CalcVideoRegisters(chrAddr uint32, prgSize uint32, startsAtBoundary bool, i
 		// We need to adjust if there's a 128K offset
 		var base uint32
 		if prgSize >= 128*1024 {
-			base = chrAddr - 0x20000
+			if prgSize > 128*1024 {
+				base = chrAddr
+			} else {
+				base = chrAddr - 0x20000
+			}
 			va24_21 = uint8((base >> 21) & 0x0F)
 			reg4100 = va24_21
 			va20_10 = uint8((base >> 14) & 0x70)
