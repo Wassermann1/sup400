@@ -1,3 +1,5 @@
 名称				类型		开始地址	结束地址
-Ninja Gaiden (U) MMC3		PROM		0		20000
-Ninja Gaiden (U) MMC3		VROM		20000		40000
+Legend of Zelda, The (Europe)		PROM		0		20000
+DuckTales 2 (Europe)		PROM		20000		40000
+Legend of Zelda, The (Europe)		VROM		40000		40000
+DuckTales 2 (Europe)		VROM		40000		40000

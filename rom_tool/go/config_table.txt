@@ -4,14 +4,18 @@
 Batman .nes: 11 00 81 02 00 01 0E 0F 00
 BattleCity (World).nes: 00 20 16 05 40 41 40 41 01
 Captain America.nes: 11 10 81 02 20 21 2E 2F 00
-Chip 'n Dale Rescue Rangers.nes: 11 20 81 02 40 41 4E 4F 00
-Darkwing Duck.nes: 11 30 81 02 60 61 6E 6F 00
-Duck Tales (U) MMC3.nes: 11 40 81 02 80 81 8E 8F 00
-F1 Race (Japan).nes: 00 20 36 05 44 45 44 45 00
-Felix the Cat (USA) (Hudson).nes: 11 50 81 02 A0 A1 AE AF 00
-Hottarman no Chitei Tanken (Japan).nes: 00 20 76 04 48 49 4A 4B 00
-Little Mermaid, The (U) MMC3.nes: 11 60 81 02 C0 C1 CE CF 00
-Ninja Gaiden (U) MMC3.nes: 11 70 81 02 E0 E1 EE EF 00
-Pac-Man (Europe).nes: 00 20 96 05 50 51 50 51 01
-Spider-Man.nes: 22 00 81 02 00 01 0E 0F 80
-Super Mario Bros. (Europe).nes: 00 20 C6 04 54 55 56 57 00
+Chip 'n Dale 2 (U) MMC3.nes: 11 20 81 02 40 41 4E 4F 00
+Chip 'n Dale.nes: 11 30 81 02 60 61 6E 6F 00
+Chitei Tanken (Japan).nes: 00 20 56 04 44 45 46 47 00
+Darkwing Duck.nes: 11 40 81 02 80 81 8E 8F 00
+Donkey Kong jr (USA, Europe).nes: 00 20 76 05 4C 4D 4C 4D 00
+Duck Tales (U) MMC3.nes: 11 50 81 02 A0 A1 AE AF 00
+F1 Race (Japan).nes: 00 20 96 05 50 51 50 51 00
+Felix the Cat (USA) (Hudson).nes: 11 60 81 02 C0 C1 CE CF 00
+Flintstones.nes: 22 00 81 02 00 01 0E 0F 80
+Little Mermaid (U) MMC3.nes: 22 20 01 02 30 31 3E 3F 00
+Ninja Gaiden (U) MMC3.nes: 22 30 01 02 50 51 5E 5F 00
+Pac-Man (Europe).nes: 00 20 B6 05 54 55 54 55 01
+Spider-Man.nes: 22 40 01 02 70 71 7E 7F 80
+Super Mario Bros. (Europe).nes: 00 20 E6 04 58 59 5A 5B 00
+Super Mario Bros2 (USA).nes: 22 50 81 02 A0 A1 AE AF 00
