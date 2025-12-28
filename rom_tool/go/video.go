@@ -28,13 +28,20 @@ func CalcVideoRegisters(chrAddr uint32, prgSize uint32, startsAtBoundary bool, i
 	if startsAtBoundary && !isSmallGame {
 		// Normal Mode, Case 1
 		// Formula: ($4100&0x0F)<<21 + ($2018&0x70)<<14 + (($201A&0x80)|(VBANK&0x7F))<<10
-		// We need to adjust if there's a 128K offset
+		// We need to adjust if there's a 128K offset, but only within the same 2MB window
 		var base uint32
 		if prgSize >= 128*1024 {
 			if prgSize > 128*1024 {
 				base = chrAddr
 			} else {
+				// For 128K PRG, subtract 128K offset, but ensure we stay in the same 2MB window
+				const windowSize = 0x200000 // 2MB
+				windowBase := (chrAddr / windowSize) * windowSize
 				base = chrAddr - 0x20000
+				// If subtracting 0x20000 would cross window boundary, use original address
+				if base < windowBase {
+					base = chrAddr
+				}
 			}
 			va24_21 = uint8((base >> 21) & 0x0F)
 			reg4100 = va24_21

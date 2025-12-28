@@ -20,31 +20,65 @@ func BuildMMC3Config(game *NESGame, romOffset uint32) MMC3Config {
 	// 3. Use proper case-based formula (typically Case 0 for MMC3)
 
 	// Calculate PA24-21 from physical address (bits 24-21)
+	// According to documentation: each 2MB window has its own PA24-21 value
 	pa24_21 := uint8((romOffset >> 21) & 0x0F)
 
 	// Combine video VA24-21 (D3-0) and program PA24-21 (D7-4) in $4100
 	// Note: $4100 is shared between program and video memory
 	reg4100 := (pa24_21 << 4) | (reg4100_video & 0x0F)
 
+	// Calculate bank numbers relative to the 2MB window
+	// Each 2MB window contains 256 banks (256 * 8KB = 2MB)
+	// Bank numbers must be 0-255 within each window
+	const windowSize = 0x200000 // 2MB
+	windowBase := (romOffset / windowSize) * windowSize
+	offsetInWindow := romOffset - windowBase
+
 	// Calculate bank numbers for each program address slot
 	// $8000-$9FFF: PQ0 ($4107)
-	bank4 := calculateBankForAddress(romOffset)
+	bank4 := calculateBankForAddress(offsetInWindow)
 	// $A000-$BFFF: PQ1 ($4108)
-	bank5 := calculateBankForAddress(romOffset + 8192)
+	bank5 := calculateBankForAddress(offsetInWindow + 8192)
 
 	// For $C000 and $E000, use last banks of PRG ROM
+	// Calculate offsets relative to the window
 	var bank6, bank7 uint8
 	switch game.PRGSize {
 	case 128 * 1024:
-		bank6 = calculateBankForAddress(romOffset + (14 * 8192))
-		bank7 = calculateBankForAddress(romOffset + (15 * 8192))
+		bank6Offset := offsetInWindow + (14 * 8192)
+		bank7Offset := offsetInWindow + (15 * 8192)
+		// Ensure we don't exceed window bounds
+		if bank6Offset >= windowSize {
+			bank6Offset = bank6Offset % windowSize
+		}
+		if bank7Offset >= windowSize {
+			bank7Offset = bank7Offset % windowSize
+		}
+		bank6 = calculateBankForAddress(bank6Offset)
+		bank7 = calculateBankForAddress(bank7Offset)
 	case 256 * 1024:
-		bank6 = calculateBankForAddress(romOffset + (30 * 8192))
-		bank7 = calculateBankForAddress(romOffset + (31 * 8192))
+		bank6Offset := offsetInWindow + (30 * 8192)
+		bank7Offset := offsetInWindow + (31 * 8192)
+		// Ensure we don't exceed window bounds
+		if bank6Offset >= windowSize {
+			bank6Offset = bank6Offset % windowSize
+		}
+		if bank7Offset >= windowSize {
+			bank7Offset = bank7Offset % windowSize
+		}
+		bank6 = calculateBankForAddress(bank6Offset)
+		bank7 = calculateBankForAddress(bank7Offset)
 	default:
-		lastBankOffset := romOffset + game.PRGSize - 16384
+		lastBankOffset := offsetInWindow + game.PRGSize - 16384
+		if lastBankOffset >= windowSize {
+			lastBankOffset = lastBankOffset % windowSize
+		}
 		bank6 = calculateBankForAddress(lastBankOffset)
-		bank7 = calculateBankForAddress(lastBankOffset + 8192)
+		bank7Offset := lastBankOffset + 8192
+		if bank7Offset >= windowSize {
+			bank7Offset = bank7Offset % windowSize
+		}
+		bank7 = calculateBankForAddress(bank7Offset)
 	}
 
 	byte8 := uint8(0x00)
