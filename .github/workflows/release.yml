@@ -28,6 +28,7 @@ jobs:
 
     - name: Build binary
       working-directory: ./rom_tool/go
+      shell: bash
       run: |
         mkdir -p ../bin
         GOOS=${{ matrix.goos }} GOARCH=amd64 go build -trimpath -o ../bin/rom_tool${{ matrix.ext }} .
